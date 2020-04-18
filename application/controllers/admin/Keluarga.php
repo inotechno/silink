@@ -20,6 +20,7 @@ class Keluarga extends CI_Controller {
         $this->load->view('admin/keluarga');
         $this->load->view('partials/05footer');
         $this->load->view('partials/06plugin');
+        $this->load->view('partials/services/keluarga');
 	}
 
 	public function view_keluarga()
@@ -36,7 +37,7 @@ class Keluarga extends CI_Controller {
 				$foto = base_url("assets/images/penduduk/$dp->foto");
 			}
 			$html .= '<tr>
-	                    <td class="align-middle">'.$no++.'</td>
+	                    <td class="align-middle text-center">'.$no++.'</td>
 	                    <td hidden>'.$dp->id.'</td>
 	                    <td class="align-middle">
 	                    	<a target="_blank" href="'.$foto.'"><img class="" width="40" height="50" src="'.$foto.'"></a>
@@ -74,7 +75,7 @@ class Keluarga extends CI_Controller {
                         <td class="align-middle text-center">
                             <a href="javascript:void(0);" class="btn btn-outline-info btn-sm item_view" data-kk="'.$dp->no_kk.'" data-namakk="'.$dp->nama_lengkap.'"><span class="fas fa-eye"></span></a>
                         </td>
-                        <td class="align-middle">'.$no++.'</td>
+                        <td class="align-middle text-center">'.$no++.'</td>
                         <td class="align-middle">'.$dp->no_kk.'</td>
                         <td class="align-middle">'.strtoupper($dp->nama_lengkap).'</td>
                         <td class="align-middle">'.$dp->jumlah_anggota.'</td>
