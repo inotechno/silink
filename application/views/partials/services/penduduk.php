@@ -1,4 +1,4 @@
-// Data Penduduk
+<!-- // Data Penduduk -->
 <script type="text/javascript">
         $(document).ready(function(){  
 
@@ -266,7 +266,7 @@
             });      
         });
 </script>
-// End Data Penduduk
+<!-- // End Data Penduduk -->
 
 </body>
     

@@ -5,6 +5,66 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
+                        <div class="row">
+
+                            <div class="col-md">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex d-lg-flex d-lg-block align-items-center">
+                                            <div>
+                                                <div class="d-inline-flex align-items-center">
+                                                    <h3 class="text-dark mb-1 font-weight-medium" id="infocredit"></h3>
+                                                    <span class="badge bg-primary font-12 text-white font-weight-medium badge-pill ml-2 d-lg-block d-md-none" id="persencredit"></span>
+                                                </div>
+                                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Credit</h6>
+                                            </div>
+                                            <div class="ml-auto mt-md-3 mt-lg-0">
+                                                <span class="far fa-money-bill-alt fa-2x"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            
+                            <div class="col-md">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex d-lg-flex d-lg-block align-items-center">
+                                            <div>
+                                                <div class="d-inline-flex align-items-center">
+                                                    <h3 class="text-dark mb-1 font-weight-medium" id="infodebit"></h3>
+                                                    <span class="badge bg-primary font-12 text-white font-weight-medium badge-pill ml-2 d-lg-block d-md-none" id="persendebit"></span>
+                                                </div>
+                                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Debit</h6>
+                                            </div>
+                                            <div class="ml-auto mt-md-3 mt-lg-0">
+                                                <span class="far fa-money-bill-alt fa-2x"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+
+                            <div class="col-md">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex d-lg-flex d-lg-block align-items-center">
+                                            <div>
+                                                <div class="d-inline-flex align-items-center">
+                                                    <h3 class="text-dark mb-1 font-weight-medium" id="totalkeuangan"></h3>
+                                                </div>
+                                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total Keuangan</h6>
+                                            </div>
+                                            <div class="ml-auto mt-md-3 mt-lg-0">
+                                                <span class="far fa-money-bill-alt fa-2x"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                        
+
                         <div class="card">
                             <div class="card-body">
                                 <div class="row mb-2">
@@ -27,19 +87,17 @@
                                 <div class="row">
                                     <div class="col table-responsive">
                                         
-                                        <table class="table table-striped table-hover no-wrap small table-sm" id="Pemuda" >
+                                        <table class="table table-striped table-bordered table-hover no-wrap small table-sm" id="keuangan" >
                                             <thead class="text-center">
-                                                <th class="align-middle p-2">Aksi</th>
-                                                <th class="align-middle">No</th>
-                                                <th class="align-middle" hidden="">ID</th>
-                                                <th class="align-middle">Foto</th>
-                                                <th class="align-middle">Nama Lengkap</th>
-                                                <th class="align-middle">Tempat Lahir</th>
-                                                <th class="align-middle">Tanggal Lahir</th>
-                                                <th class="align-middle">Jenis Kelamin</th>
-                                                <th class="align-middle">Jabatan</th>
+                                                <th class="align-middle p-2">AKSI</th>
+                                                <th class="align-middle">NO</th>
+                                                <th class="align-middle">NO TRANSAKSI</th>
+                                                <th class="align-middle">JENIS TRANSAKSI</th>
+                                                <th class="align-middle">NILAI</th>
+                                                <th class="align-middle">CATATAN</th>
+                                                <th class="align-middle">TANGGAL</th>
                                             </thead>
-                                            <tbody id="show_data_pemuda"></tbody>
+                                            <tbody id="show_data_keuangan"></tbody>
                                         </table>
 
                                     </div>
@@ -59,56 +117,55 @@
             <!-- Modal Create Pemuda -->
             <!-- ============================================================== -->
 
-            <div id="add_modal_pemuda" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addmodal_label" aria-hidden="true">
+            <div id="add_modal_keuangan" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addmodal_label" aria-hidden="true">
                 <div class="modal-dialog modal-md">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="primary-header-modalLabel">Tambah Data Pemuda
+                        <div class="modal-header modal-colored-header bg-success">
+                            <h4 class="modal-title" id="primary-header-modalLabel">Tambah Data Keuangan
                             </h4>
                             <button type="button" class="close" data-dismiss="modal"
                                 aria-hidden="true">×</button>
                         </div>
                         <div class="modal-body">
-                            <form id="form_submit">
-                                <div>
-                                    <div class="card my-1 rows">
-                                        <div class="card-body p-1">
-                                            <div class="row">
-                                                <div class="col-md">
-                                                    <div class="form-group">
-                                                        <label>Nama Lengkap</label>
-                                                        <select class="form-control select-nama" name="id_penduduk[]" required>
-                                                        </select>
-                                                    </div>
-                                                </div>
+                            <form id="add_keuangan">
+                                <div class="row">
+                                    <div class="col-md">
 
-                                                <div class="col-md">
-                                                    <div class="form-group">
-                                                        <label>Jabatan</label>
-                                                        <select class="form-control select-jabatan" name="jabatan[]" required>
-                                                            <option value="1">Ketua Pemuda</option>
-                                                            <option value="2">Sekretaris</option>
-                                                            <option value="3">Bendahara</option>
-                                                            <option value="4">Anggota</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
+                                        <div class="form-group">
+                                            <label>No Keuangan</label>
+                                            <input type="text" name="no_keuangan" readonly class="form-control">
                                         </div>
+
+                                        <div class="form-group">
+                                            <label>Nilai Dalam Rupiah</label>
+                                            <input type="number" name="nilai_keuangan" class="form-control">
+                                        </div>
+
                                     </div>
-                                </div>  
 
-                                <div id="insert-form"></div>
-                                <button type="button" class="btn btn-primary btn-sm btn-add-more"><span class="fa fa-plus"></span></button>
+                                    <div class="col-md">
 
+                                        <div class="form-group">
+                                            <label>Catatan</label>
+                                            <textarea name="catatan" class="form-control"></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Jenis Keuangan</label>
+                                            <select name="jenis_keuangan" class="form-control">
+                                                <option value="Debit">Debit</option>
+                                                <option value="credit">Credit</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-outline-success" id="btn_submit_pemuda">Simpan</button>
+                            <button type="submit" class="btn btn-outline-success" id="btn_submit_keuangan">Simpan</button>
                         </div>
-                            <input type="hidden" value="1" id="jumlah-form">
 
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->

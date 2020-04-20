@@ -42,9 +42,9 @@
 					$foto = base_url("assets/images/penduduk/$dp->foto");
 				}
 				$html .= '<tr>
-	                        <td style="text-align:right;" class="align-middle">
-	                            <a href="javascript:void(0);" class="btn btn-outline-info btn-sm item_edit" data-id="'.$dp->id.'"><span class="far fa-edit"></span></a>
-	                            <a href="javascript:void(0);" class="btn btn-outline-danger btn-sm item_delete" data-id="'.$dp->id.'" data-nama="'.$dp->nama_lengkap.'" data-jabatan="'.$dp->jabatan.'"><span class="far fa-trash-alt"></span></a>
+	                        <td class="text-center align-middle">
+	                            <a href="javascript:void(0);" class="btn btn-outline-info btn-sm edit_pemuda" data-jabatan="'.$dp->jabatan.'" data-id="'.$dp->id.'" data-nama="'.$dp->nama_lengkap.'"><span class="far fa-edit"></span></a>
+	                            <a href="javascript:void(0);" class="btn btn-outline-danger btn-sm delete_pemuda" data-id="'.$dp->id.'" data-nama="'.$dp->nama_lengkap.'" data-jabatan="'.$dp->jabatan.'" ><span class="far fa-trash-alt"></span></a>
 	                        </td>
 	                        <td class="align-middle text-center">'.$no++.'</td>
 	                        <td hidden>'.$dp->id.'</td>
@@ -55,11 +55,7 @@
 	                        <td class="align-middle">'.$dp->tempat_lahir.'</td>
 	                        <td class="align-middle">'.date("d-m-Y", strtotime($dp->tanggal_lahir)).'</td>
 	                        <td class="align-middle">'.$dp->jenis_kelamin.'</td>
-	                        <td class="align-middle">'.$dp->agama.'</td>
-	                        <td class="align-middle">'.$dp->pendidikan.'</td>
-	                        <td class="align-middle">'.$dp->pekerjaan.'</td>
-	                        <td class="align-middle">'.$dp->status_kawin.'</td>
-	                        <td class="align-middle">'.$dp->status.'</td>
+	                        <td class="align-middle">'.$dp->status_pemuda.'</td>
 	                    </tr>';
 				}
 			} else {
@@ -67,6 +63,7 @@
 							<td colspan="14" class="text-center">Tidak Ada Data</td>
 							</tr>';
 			}
+
 			echo $html;
 		}
 
@@ -74,23 +71,49 @@
 		{
 			$html = '';
 			$data = $this->KepemudaanModel->data_penduduk();
-			foreach ($data as $dt) {
-				$html = '<option value="'.$dt->id.'">'.$dt->nama_lengkap.'</option>';
+			if ($data->num_rows() > 0) {
+				foreach ($data->result() as $dt) {
+					$html .= "<option value='".$dt->id."'>".$dt->nama_lengkap."</option>";
+				}
+			} else {
+				$html .= "<option value=''>Pilih Data Penduduk</option>";
 			}
-			echo $this->db->last_query($data);
+			
 			echo $html;
 		}
 
 		public function save_pemuda()
 		{
-			$result = $this->KepemudaanModel->simpan_pemuda($_POST);
-			echo $this->db->last_query($result);
-			if ($result) {
-				echo 1;
-			} else {
-				echo 0;
+
+			$id = $this->input->post('id_penduduk');
+			
+			$data = array();
+			foreach ($id as $i => $val) {
+				$data[] = array(
+					'id_penduduk' => $_POST['id_penduduk'][$i],
+					'jabatan'		=> $_POST['jabatan'][$i]
+				);
 			}
-			exit;
+			
+			$result = $this->KepemudaanModel->simpan_pemuda($data);
+			echo json_encode($result);
+		}
+
+		public function update_pemuda()
+		{
+			$id = $this->input->post('id');
+			$jabatan = $this->input->post('jabatan');
+
+			$data = $this->KepemudaanModel->edit_pemuda($id, $jabatan);
+			echo json_encode($data);
+		}
+
+		public function delete_pemuda()
+		{
+			$id = $this->input->post('id');
+
+			$data = $this->KepemudaanModel->hapus_pemuda($id);
+			echo json_encode($data);
 		}
 	
 	}
