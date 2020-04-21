@@ -15,7 +15,6 @@
     <link href="<?= base_url('assets'); ?>/assets/extra-libs/datatables/datatables.min.css" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link href="<?= base_url('assets'); ?>/assets/libs/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="<?= base_url('assets'); ?>/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
     <link href="<?= base_url('assets'); ?>/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
     <link href="<?= base_url('assets'); ?>/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />

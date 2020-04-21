@@ -88,7 +88,46 @@
         	});
         });
 
+        $('#show_data_keuangan').on('click','.edit_keuangan',function(){
+            var id=$(this).attr('data-id');
+            var no_keuangan=$(this).attr('data-no');
+            var jenis_keuangan=$(this).attr('data-jenis');
+            var nilai_keuangan=$(this).attr('data-nilai');
+            var catatan=$(this).attr('data-catatan');
 
+            $('[name="id"]').val(id);
+            $('[name="no_keuangan_edit"]').attr('disabled', true);
+            $('[name="no_keuangan_edit"]').val(no_keuangan);
+            $('[name="jenis_keuangan_edit"]').val(jenis_keuangan);
+            $('[name="nilai_keuangan_edit"]').val(nilai_keuangan);
+            $('[name="catatan_edit"]').val(catatan);
+            $('#edit_modal_keuangan').modal('show');
+        });
+
+        $('#btn_edit_data').on('click', function () {
+        	var id_keuangan = $('[name="id"]').val();
+        	var nilai_keuangan = $('[name="nilai_keuangan_edit"]').val();
+        	var jenis_keuangan = $('[name="jenis_keuangan_edit"]').val();
+        	var catatan = $('[name="catatan_edit"]').val();
+
+        	$.ajax({
+        		url: '<?= base_url('admin/keuangan/update_keuangan') ?>',
+        		type: 'POST',
+        		dataType: 'JSON',
+        		data: {id_keuangan:id_keuangan, nilai_keuangan:nilai_keuangan, jenis_keuangan:jenis_keuangan, catatan:catatan},
+        		success: function(data) {
+        			$("#alert-success-text").html('Data Berhasil di Simpan');
+                    $("#alert-success").fadeIn().delay(1000).fadeOut();
+                    $('#edit_modal_keuangan').modal('hide');
+                    $('[name="no_keuangan_edit"]').val('');
+		        	$('[name="nilai_keuangan_edit"]').val('');
+		        	$('[name="jenis_keuangan_edit"]').val('');
+		        	$('[name="catatan_edit"]').val('');
+                    daftar_keuangan();
+                    info_debit_credit();
+        		}
+        	});
+        });
     });
 </script>
 

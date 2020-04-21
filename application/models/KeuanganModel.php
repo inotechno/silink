@@ -5,7 +5,7 @@
 	
 		function get_id()
 		{
-			$q = $this->db->query("SELECT MAX(RIGHT(no_keuangan,3)) AS kd_max FROM keuangan_sistem WHERE DATE(created_at)=CURDATE()");
+			$q = $this->db->query("SELECT MAX(RIGHT(no_keuangan,3)) AS kd_max FROM bendahara_warga WHERE DATE(created_at)=CURDATE()");
 	        $kd = "";
 	        if($q->num_rows()>0){
 	            foreach($q->result() as $k){
@@ -26,7 +26,7 @@
 				SUM(IF(jenis_keuangan = "credit", nilai_keuangan, 0)) as total_credit,
 				SUM(nilai_keuangan) as total_keuangan
 				');
-			$this->db->from('keuangan_sistem');
+			$this->db->from('bendahara_warga');
 			$i = $this->db->get()->row();
 
 			$data = array(
@@ -42,9 +42,9 @@
 
 		function daftar_keuangan($query)
 		{
-			$this->db->select('keuangan_sistem.*, penduduk.id, penduduk.nama_lengkap');
-			$this->db->from('keuangan_sistem');
-			$this->db->join('penduduk', 'penduduk.id = keuangan_sistem.created_at', 'left');
+			$this->db->select('bendahara_warga.*, penduduk.id, penduduk.nama_lengkap');
+			$this->db->from('bendahara_warga');
+			$this->db->join('penduduk', 'penduduk.id = bendahara_warga.created_at', 'left');
 			if ($query != '') {
 		 		$this->db->or_like('no_keuangan', $query);
 		 		$this->db->or_like('jenis_keuangan', $query);
@@ -57,9 +57,13 @@
 
 		function simpan_keuangan($data)
 		{
-			$this->db->insert('keuangan_sistem', $data);
+			$this->db->insert('bendahara_warga', $data);
 		}
 	
+		function ubah_keuangan($id, $data)
+		{
+			return $this->db->update('bendahara_warga', $data, array('id_keuangan' =>$id));
+		}
 	}
 	
 	/* End of file KeuanganModel.php */

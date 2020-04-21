@@ -19,7 +19,7 @@
                                                 <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Credit</h6>
                                             </div>
                                             <div class="ml-auto mt-md-3 mt-lg-0">
-                                                <span class="far fa-money-bill-alt fa-2x"></span>
+                                                <span class="fas fa-arrow-circle-up fa-2x text-danger"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -38,7 +38,7 @@
                                                 <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Debit</h6>
                                             </div>
                                             <div class="ml-auto mt-md-3 mt-lg-0">
-                                                <span class="far fa-money-bill-alt fa-2x"></span>
+                                                <span class="fas fa-arrow-circle-down fa-2x text-success"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -56,7 +56,7 @@
                                                 <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total Keuangan</h6>
                                             </div>
                                             <div class="ml-auto mt-md-3 mt-lg-0">
-                                                <span class="far fa-money-bill-alt fa-2x"></span>
+                                                <span class="fas fa-dollar-sign fa-2x text-info"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -74,7 +74,7 @@
                                         <button class="btn btn-sm btn-primary" type="button"><span class="fa fa-file-pdf"></span></button>
                                         <button class="btn btn-sm btn-primary" type="button"><span class="fa fa-print"></span></button>
                                         <button class="btn btn-sm btn-success" type="button" id="btn_tambah_data">
-                                            <span class="fas fa-plus-square fa-lg" data-toggle="tooltip" title="Tambah Data" ></span>
+                                            <span class="fas fa-plus-square fa-lg"></span>
                                         </button>
 
                                     </div>
@@ -153,7 +153,7 @@
                                         <div class="form-group">
                                             <label>Jenis Keuangan</label>
                                             <select name="jenis_keuangan" class="form-control">
-                                                <option value="Debit">Debit</option>
+                                                <option value="debit">Debit</option>
                                                 <option value="credit">Credit</option>
                                             </select>
                                         </div>
@@ -171,63 +171,52 @@
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
 
-            <!-- Modal Delete Pemuda -->
+
+            <!-- Modal Update Keuangan -->
             <!-- ============================================================== -->
 
-            <div id="delete_modal_pemuda" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="delete_modal_pemuda" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-sm">
-                    <div class="modal-content modal-filled bg-warning">
-                        <div class="modal-body p-4">
-                            <div class="text-center">
-                                <h4 class="mt-2"><i class="fa fa-exclamation-triangle"></i> Hati-Hati !</h4>
-                                <input type="hidden" name="id" id="textid" value="">
-                                <p class="mt-3">Anda Akan Menghapus Data <span id="hapusnama"></span> ? Dari Daftar Pemuda, Sebagai <span id="hapusjabatan"></span></p>
-                                <button type="button" class="btn btn-sm btn-light btn-rounded my-2" data-dismiss="modal">Batal</button>
-                                <button type="button" id="delete_btn" class="btn btn-sm btn-rounded btn-danger">Hapus</button>
-                            </div>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div>
-
-            <!-- Modal Update Pemuda -->
-            <!-- ============================================================== -->
-
-            <div id="edit_modal_pemuda" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addmodal_label" aria-hidden="true">
+            <div id="edit_modal_keuangan" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addmodal_label" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
-                        <div class="modal-header modal-colored-header bg-primary">
+                        <div class="modal-header modal-colored-header bg-info">
                             <h4 class="modal-title" id="primary-header-modalLabel">Ubah Data Pemuda
                             </h4>
                             <button type="button" class="close" data-dismiss="modal"
                                 aria-hidden="true">×</button>
                         </div>
                         <div class="modal-body">
-                            <form id="form-edit">
-                                <div class="card my-1 rows">
-                                    <div class="card-body p-1">
-                                        <div class="row">
-                                            <div class="col-md">
-                                                <input type="text" name="id_pemuda" hidden class="form-control">
-                                                <div class="form-group">
-                                                    <label>Nama Lengkap</label>
-                                                    <input type="text" name="nama_lengkap" class="form-control edit-select-nama">
-                                                </div>
-                                            </div>
+                            <form id="edit_keuangan">
+                                <div class="row">
+                                    <div class="col-md">
+                                        <input type="text" name="id" hidden class="form-control">
 
-                                            <div class="col-md">
-                                                <div class="form-group">
-                                                    <label>Jabatan</label>
-                                                    <select class="form-control select-jabatan" name="jabatan">
-                                                        <option value="1">Ketua Pemuda</option>
-                                                        <option value="2">Sekretaris</option>
-                                                        <option value="3">Bendahara</option>
-                                                        <option value="4">Anggota</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            
+                                        <div class="form-group">
+                                            <label>No Keuangan</label>
+                                            <input type="text" name="no_keuangan_edit" readonly class="form-control">
                                         </div>
+
+                                        <div class="form-group">
+                                            <label>Nilai Dalam Rupiah</label>
+                                            <input type="number" name="nilai_keuangan_edit" class="form-control">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md">
+
+                                        <div class="form-group">
+                                            <label>Catatan</label>
+                                            <textarea name="catatan_edit" class="form-control"></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Jenis Keuangan</label>
+                                            <select name="jenis_keuangan_edit" class="form-control">
+                                                <option value="debit">Debit</option>
+                                                <option value="credit">Credit</option>
+                                            </select>
+                                        </div>
+
                                     </div>
                                 </div>
                             </form>

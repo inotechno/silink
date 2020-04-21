@@ -47,15 +47,21 @@
 			$data = $this->KeuanganModel->daftar_keuangan($query);
 			if ($data->num_rows() > 0) {
 				$no = 1;
+
 				foreach ($data->result() as $dp) {
+					if ($dp->jenis_keuangan == 'credit') {
+						$jenis_keuangan = '<span class="badge badge-danger float-right">'.ucfirst($dp->jenis_keuangan).'</span>';
+					}else{
+						$jenis_keuangan = '<span class="badge badge-success">'.ucfirst($dp->jenis_keuangan).'</span>';
+					}
 				$html .= '<tr>
 	                        <td class="text-center align-middle">
-	                            <a href="javascript:void(0);" class="btn btn-outline-info btn-sm edit_pemuda" data-jenis="'.$dp->jenis_keuangan.'" data-id="'.$dp->id.'"><span class="far fa-edit"></span></a>
+	                            <a href="javascript:void(0);" class="btn btn-outline-info btn-sm edit_keuangan" data-id="'.$dp->id_keuangan.'" data-no="'.$dp->no_keuangan.'" data-jenis="'.$dp->jenis_keuangan.'" data-nilai="'.$dp->nilai_keuangan.'" data-catatan="'.$dp->catatan.'"><span class="far fa-edit"></span></a>
 	                        </td>
-	                        <td hidden>'.$dp->id.'</td>
+	                        <td hidden>'.$dp->id_keuangan.'</td>
 	                        <td class="align-middle text-center">'.$no++.'</td>
 	                        <td class="align-middle">'.$dp->no_keuangan.'</td>
-	                        <td class="align-middle">'.ucfirst($dp->jenis_keuangan).'</td>
+	                        <td class="align-middle">'.$jenis_keuangan.'</td>
 	                        <td class="align-middle">'.'Rp. '.number_format($dp->nilai_keuangan).'</td>
 	                        <td class="align-middle">'.$dp->catatan.'</td>
 	                        <td class="align-middle">'.date("d-m-Y : H:i:s", strtotime($dp->created_at)).'</td>
@@ -80,6 +86,21 @@
 			$data['created_at'] = date("Y-m-d H:i:s");
 
 			$result = $this->KeuanganModel->simpan_keuangan($data);
+			echo json_encode($result);
+		}
+
+		public function update_keuangan()
+		{
+
+			$id_keuangan = $this->input->post('id_keuangan');
+			$data['id_keuangan'] = $this->input->post('id_keuangan');
+			$data['jenis_keuangan'] = $this->input->post('jenis_keuangan');
+			$data['nilai_keuangan'] = $this->input->post('nilai_keuangan');
+			$data['catatan'] = $this->input->post('catatan');
+			$data['created_by'] = $this->session->userdata('id');
+			$data['created_at'] = date("Y-m-d H:i:s");
+
+			$result = $this->KeuanganModel->ubah_keuangan($id_keuangan, $data);
 			echo json_encode($result);
 		}
 

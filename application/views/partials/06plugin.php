@@ -5,7 +5,6 @@
     <script src="<?= base_url('assets'); ?>/assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="<?= base_url('assets'); ?>/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="<?= base_url('assets'); ?>/assets/extra-libs/datatables/datatables.min.js"></script>
-    <script src="<?= base_url('assets'); ?>/assets/libs/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 
     <!-- apps -->
     <script src="<?= base_url('assets'); ?>/dist/js/app-style-switcher.js"></script>

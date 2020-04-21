@@ -14,7 +14,7 @@
                                         <button class="btn btn-sm btn-primary" type="button"><span class="fa fa-file-pdf"></span></button>
                                         <button class="btn btn-sm btn-primary" type="button"><span class="fa fa-print"></span></button>
                                         <button class="btn btn-sm btn-success" type="button" id="btn_tambah_data">
-                                            <span class="fas fa-plus-square fa-lg" data-toggle="tooltip" title="Tambah Data" ></span>
+                                            <span class="fas fa-plus-square fa-lg"></span>
                                         </button>
 
                                     </div>
