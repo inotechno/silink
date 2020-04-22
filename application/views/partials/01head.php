@@ -26,6 +26,17 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+    <style type="text/css">
+        #alert-success {
+            display: none;
+            text-align: center;
+            position: fixed;
+            bottom: 50px;
+            right: 0;
+            z-index: 999;
+        }
+    </style>
 </head>
 
 <body>
@@ -40,16 +51,6 @@
         </div>
     </div>
 
-
-    <div id="alert-success" class="modal fade show mt-3" tabindex="-1" role="dialog" aria-hidden="true" style="opacity: 50%;">
-        <div class="modal-dialog modal-top modal-sm">
-            <div class="modal-content modal-filled bg-success">
-                <div class="modal-body p-0">
-                    <div class="text-center">
-                        <h4 class="mt-1"><i class="fa fa-check"></i> Success</h4>
-                        <p class="mt-1" id="alert-success-text"></p>
-                    </div>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
+    <div class="alert bg-success text-white p-1" id="alert-success">
+        <strong>Sukses </strong> <p class="mt-1" id="alert-success-text"></p>
     </div>
