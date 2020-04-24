@@ -42,7 +42,7 @@
         		<div class="card-body table-responsive p-1">
         			<table style="font-size: 12px" class="table table-sm">
         				<thead>
-                            <th class="align-middle"></th>
+                            <th class="align-middle text-center">Aksi</th>
         					<th class="align-middle text-center">No</th>
         					<th class="align-middle">Jenis Sumbangan</th>
         					<th class="align-middle">Nilai Sumbangan</th>

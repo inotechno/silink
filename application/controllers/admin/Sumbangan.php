@@ -68,8 +68,8 @@
 				foreach ($data->result() as $dp) {
 				$html .= '<tr>
 							<td class="text-center align-middle">
-	                            <a href="javascript:void(0);" class="fas fa-pencil-alt edit_sumbangan" data-id="'.$dp->id_sumbangan.'" data-jenis="'.$dp->id_jenis.'" data-nilai="'.$dp->nilai_sumbangan.'" data-nama="'.$dp->id.'" data-tanggal="'.$dp->tanggal_sumbangan.'"></a>
-	                            <a href="javascript:void(0);" class="far fa-trash-alt hapus_sumbangan" data-id="'.$dp->id_sumbangan.'"></a>
+	                            <a href="javascript:void(0);" class="btn btn-sm btn-outline-info edit_sumbangan" data-id="'.$dp->id_sumbangan.'" data-jenis="'.$dp->id_jenis.'" data-nilai="'.$dp->nilai_sumbangan.'" data-nama="'.$dp->id.'" data-tanggal="'.$dp->tanggal_sumbangan.'"><span class="fas fa-pencil-alt"></span></a>
+	                            <a href="javascript:void(0);" class="btn btn-sm btn-outline-danger hapus_sumbangan" data-id="'.$dp->id_sumbangan.'"><span class="far fa-trash-alt"></span></a>
 	                        </td>
 	                        <td class="align-middle text-center">'.$no++.'</td>
 	                        <td hidden>'.$dp->id_sumbangan.'</td>
