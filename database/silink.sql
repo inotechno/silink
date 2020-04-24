@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Apr 2020 pada 19.10
+-- Waktu pembuatan: 24 Apr 2020 pada 16.17
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.3
 
@@ -25,12 +25,79 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `bendahara_warga`
+--
+
+CREATE TABLE `bendahara_warga` (
+  `id_keuangan` int(11) NOT NULL,
+  `no_keuangan` varchar(10) NOT NULL,
+  `nilai_keuangan` bigint(20) NOT NULL,
+  `jenis_keuangan` varchar(10) NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `catatan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `bendahara_warga`
+--
+
+INSERT INTO `bendahara_warga` (`id_keuangan`, `no_keuangan`, `nilai_keuangan`, `jenis_keuangan`, `created_by`, `created_at`, `catatan`) VALUES
+(16, '2104200001', 20000, 'debit', 1, '2020-04-21 08:57:34', 'Baru'),
+(17, '2204200001', 30000, 'credit', 1, '2020-04-22 03:27:47', 'Sumbangan\n');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `inventaris`
+--
+
+CREATE TABLE `inventaris` (
+  `id` int(11) NOT NULL,
+  `nama_barang` varchar(30) NOT NULL,
+  `satuan` varchar(20) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `status` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `inventaris`
+--
+
+INSERT INTO `inventaris` (`id`, `nama_barang`, `satuan`, `jumlah`, `status`) VALUES
+(1, 'Kursi', 'Unit', 30, 'Ada'),
+(7, 'Sendok', 'Lusin', 20, 'Ada');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `jenis_sumbangan_warga`
+--
+
+CREATE TABLE `jenis_sumbangan_warga` (
+  `id_jenis` int(11) NOT NULL,
+  `nama_sumbangan` text NOT NULL,
+  `mulai_sumbangan` date NOT NULL,
+  `selesai_sumbangan` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `jenis_sumbangan_warga`
+--
+
+INSERT INTO `jenis_sumbangan_warga` (`id_jenis`, `nama_sumbangan`, `mulai_sumbangan`, `selesai_sumbangan`) VALUES
+(4, 'Sumbangan Musolah', '2020-04-20', '2020-04-24'),
+(5, 'Kursi', '2020-04-24', '2020-04-30');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `menus`
 --
 
 CREATE TABLE `menus` (
   `id` int(11) NOT NULL,
-  `nama_menu` varchar(30) NOT NULL,
+  `nama_menu` varchar(100) NOT NULL,
   `icon` varchar(30) NOT NULL,
   `link` varchar(30) NOT NULL,
   `sub_menu` int(11) NOT NULL,
@@ -47,7 +114,12 @@ INSERT INTO `menus` (`id`, `nama_menu`, `icon`, `link`, `sub_menu`, `level_menu`
 (3, 'Data Penduduk', '', 'Data_Penduduk', 2, 1),
 (4, 'Keluarga', '', 'Keluarga', 2, 1),
 (5, 'Kepemudaan', 'aperture', '#', 0, 1),
-(6, 'Data Pemuda', '', 'Data_Pemuda', 5, 1);
+(6, 'Data Pemuda', '', 'Data_Pemuda', 5, 1),
+(7, 'Keuangan', 'dollar-sign', 'Keuangan', 0, 1),
+(8, 'Sumbangan Warga', 'archive', 'Sumbangan', 0, 1),
+(9, 'Inventaris Warga', 'briefcase', 'Inventaris', 0, 1),
+(10, 'Administrasi <h6><span class=\"badge badge-info\">Coming Soon</span></h6>', 'file-text', 'Administrasi', 0, 1),
+(11, 'Pengaturan', 'sliders', 'pengaturan', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -66,7 +138,9 @@ CREATE TABLE `pemuda` (
 --
 
 INSERT INTO `pemuda` (`id`, `id_penduduk`, `jabatan`) VALUES
-(1, 1, 'Sekretaris');
+(3, 1, '1'),
+(5, 2, '3'),
+(6, 3, '4');
 
 -- --------------------------------------------------------
 
@@ -102,7 +176,75 @@ CREATE TABLE `penduduk` (
 
 INSERT INTO `penduduk` (`id`, `nik`, `no_kk`, `nama_lengkap`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `pekerjaan`, `pendidikan`, `status_perkawinan`, `status_keluarga`, `foto`, `status`, `created_by`, `update_by`, `deleted_by`, `created_at`, `update_at`) VALUES
 (1, '1283918237789188', '1234567890123456', 'Ahmad Fatoni', 'Serang', '1997-08-20', 'Laki-Laki', 'Islam', 'Buruh', 'SMA/Sederajat', 1, '1', '1283918237789188.jpg', 'Hidup', 1, 1, 0, '2020-04-17 15:04:15', '0000-00-00 00:00:00'),
-(2, '123456789012344', '1234567890123456', 'Saiyah', 'Cilegon', '1997-08-20', 'Perempuan', 'Islam', 'Buruh', 'SD/Sederajat', 1, '2', '123456789012344.jpg', 'Hidup', 1, 1, 0, '2020-04-17 15:05:26', '0000-00-00 00:00:00');
+(2, '123456789012344', '1234567890123456', 'Saiyah', 'Cilegon', '1997-08-20', 'Perempuan', 'Islam', 'Buruh', 'SD/Sederajat', 1, '2', '123456789012344.jpg', 'Hidup', 1, 1, 0, '2020-04-21 08:37:10', '0000-00-00 00:00:00'),
+(3, '21542454543454', '1234567890123456', 'Cinta', 'Serang', '2020-04-21', 'Perempuan', 'Islam', 'Karyawan Swasta', 'SMA/Sederajat', 0, '4', '21542454543454.jpeg', 'Hidup', 1, 1, NULL, '2020-04-21 08:36:59', '0000-00-00 00:00:00'),
+(4, '123456789012344', '12345678901234', 'Saiyah', 'Cilegon', '1997-08-20', 'Perempuan', 'Islam', 'Buruh', 'SD/Sederajat', 1, '1', '123456789012344.jpg', 'Hidup', 1, 1, 0, '2020-04-22 15:35:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pengaturan_website`
+--
+
+CREATE TABLE `pengaturan_website` (
+  `id` int(11) NOT NULL,
+  `nama_lingkungan` varchar(30) NOT NULL,
+  `alamat` text NOT NULL,
+  `rt` int(11) NOT NULL,
+  `rw` int(11) NOT NULL,
+  `prov` varchar(30) NOT NULL,
+  `kota` varchar(30) NOT NULL,
+  `kec` varchar(30) NOT NULL,
+  `kel` varchar(30) NOT NULL,
+  `id_rt` int(11) NOT NULL,
+  `lokasi_maps` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pengaturan_website`
+--
+
+INSERT INTO `pengaturan_website` (`id`, `nama_lingkungan`, `alamat`, `rt`, `rw`, `prov`, `kota`, `kec`, `kel`, `id_rt`, `lokasi_maps`) VALUES
+(1, 'Legok Assalam', 'Jl. Raya Cilegon Km. 04', 2, 11, 'Banten', 'Serang', 'Taktakan', 'Drangong', 1, '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pinjaman_barang`
+--
+
+CREATE TABLE `pinjaman_barang` (
+  `id` int(11) NOT NULL,
+  `id_barang` int(11) NOT NULL,
+  `jumlah_barang` int(11) NOT NULL,
+  `id_penduduk` int(11) NOT NULL,
+  `tanggal_pinjam` date NOT NULL,
+  `tanggal_kembali` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `sumbangan_warga`
+--
+
+CREATE TABLE `sumbangan_warga` (
+  `id_sumbangan` int(11) NOT NULL,
+  `id_jenis` int(11) NOT NULL,
+  `nilai_sumbangan` int(11) NOT NULL,
+  `sumbangan_dari` int(11) NOT NULL,
+  `tanggal_sumbangan` date NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `sumbangan_warga`
+--
+
+INSERT INTO `sumbangan_warga` (`id_sumbangan`, `id_jenis`, `nilai_sumbangan`, `sumbangan_dari`, `tanggal_sumbangan`, `created_by`, `created_at`) VALUES
+(1, 4, 200000, 1, '2020-04-23', 1, '2020-04-23 19:51:22'),
+(2, 4, 10000, 1, '2020-04-24', 1, '2020-04-24 14:11:19');
 
 -- --------------------------------------------------------
 
@@ -123,6 +265,7 @@ CREATE TABLE `user_aktif` (
 --
 
 INSERT INTO `user_aktif` (`id_user`, `username`, `email`, `password`, `id_level`) VALUES
+(0, 'basiscoding', 'basiscoding@gmail.com', '73eb75cb52161f3e0b9600494a14be52', 2),
 (1, 'admin', 'achmad.fatoni33@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 1);
 
 -- --------------------------------------------------------
@@ -142,11 +285,30 @@ CREATE TABLE `user_group` (
 --
 
 INSERT INTO `user_group` (`id_akses`, `nama_akses`, `link`) VALUES
-(1, 'Administrator', 'admin');
+(1, 'Administrator', 'admin'),
+(2, 'Pemuda', 'pemuda');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indeks untuk tabel `bendahara_warga`
+--
+ALTER TABLE `bendahara_warga`
+  ADD PRIMARY KEY (`id_keuangan`);
+
+--
+-- Indeks untuk tabel `inventaris`
+--
+ALTER TABLE `inventaris`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `jenis_sumbangan_warga`
+--
+ALTER TABLE `jenis_sumbangan_warga`
+  ADD PRIMARY KEY (`id_jenis`);
 
 --
 -- Indeks untuk tabel `menus`
@@ -167,6 +329,18 @@ ALTER TABLE `penduduk`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `pinjaman_barang`
+--
+ALTER TABLE `pinjaman_barang`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `sumbangan_warga`
+--
+ALTER TABLE `sumbangan_warga`
+  ADD PRIMARY KEY (`id_sumbangan`);
+
+--
 -- Indeks untuk tabel `user_aktif`
 --
 ALTER TABLE `user_aktif`
@@ -183,28 +357,58 @@ ALTER TABLE `user_group`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `bendahara_warga`
+--
+ALTER TABLE `bendahara_warga`
+  MODIFY `id_keuangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT untuk tabel `inventaris`
+--
+ALTER TABLE `inventaris`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT untuk tabel `jenis_sumbangan_warga`
+--
+ALTER TABLE `jenis_sumbangan_warga`
+  MODIFY `id_jenis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT untuk tabel `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `pemuda`
 --
 ALTER TABLE `pemuda`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `penduduk`
 --
 ALTER TABLE `penduduk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `pinjaman_barang`
+--
+ALTER TABLE `pinjaman_barang`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `sumbangan_warga`
+--
+ALTER TABLE `sumbangan_warga`
+  MODIFY `id_sumbangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_group`
 --
 ALTER TABLE `user_group`
-  MODIFY `id_akses` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_akses` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
