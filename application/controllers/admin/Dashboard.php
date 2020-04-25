@@ -31,7 +31,20 @@
             $data['pemuda'] = $pemuda->total_pemuda;
             $data['penduduk'] = $penduduk->total_penduduk;
             $data['keluarga'] = $keluarga->total_keluarga;
+            $data['pria'] = $penduduk->pria;
+            $data['wanita'] = $penduduk->wanita;
+            $data['sd'] = $penduduk->sd;
+            $data['smp'] = $penduduk->smp;
+            $data['sma'] = $penduduk->sma;
+            $data['d1'] = $penduduk->d1;
+            $data['d2'] = $penduduk->d2;
+            $data['d3'] = $penduduk->d3;
+            $data['s1'] = $penduduk->s1;
+            $data['s2'] = $penduduk->s2;
+            $data['s3'] = $penduduk->s3;
+            $data['tidak_sekolah'] = $penduduk->tidak_sekolah;
             echo json_encode($data);
+
         }
     
     }
