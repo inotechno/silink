@@ -5,8 +5,6 @@
 	
 	class Data_Penduduk extends CI_Controller {
 		
-		private $filename = "import_data";
-
 		public function __construct()
 		{
 			parent::__construct();

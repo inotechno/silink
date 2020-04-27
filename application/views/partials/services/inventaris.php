@@ -57,8 +57,7 @@ $(document).ready(function() {
 			$('#add_pinjaman').modal('show');
 			$('[name="id_barang"]').val(id_barang);
 			$('[name="nama_barang"]').val(nama_barang);
-			$('[name="jumlah"]').val(jumlah);
-			$('[name="jumlah"]').attr({max:jumlah});
+			$('[name="jumlah_pinjaman"]').attr({placeholder:jumlah, max:jumlah});
 		}
 	});
 
@@ -66,7 +65,7 @@ $(document).ready(function() {
 		
 		var id_barang = $('[name="id_barang"]').val();
 		var id_penduduk = $('[name="id_penduduk"]').val();
-		var jumlah_barang = $('[name="jumlah"]').val();
+		var jumlah_barang = $('[name="jumlah_pinjaman"]').val();
 
 		$.ajax({
 			url: '<?= base_url('admin/Inventaris/save_pinjaman') ?>',

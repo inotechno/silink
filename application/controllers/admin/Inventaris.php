@@ -27,18 +27,20 @@ class Inventaris extends CI_Controller {
 	{
 		$html = '';
 		$barang_dipinjam = 0;
-		$dipinjam = '';
 		$result = $this->InventarisModel->daftar_barang();
 		if ($result->num_rows() > 0) {
 		$no = 1;
 			foreach ($result->result() as $dp) {
 
-			if ($dp->status == 'Pinjam') {
-				$dipinjam = $dp->jumlah_barang;
-				$barang_dipinjam = '<span class="badge badge-success align-top badge-pill"><span class="fas fa-clone mr-1"></span>'.$dp->jumlah_barang.'</span>';
+			$this->db->select('SUM(jumlah_barang) as jumlah_barang');
+			$this->db->from('pinjaman_barang');
+			$this->db->where('id_barang', $dp->id);
+			$pj = $this->db->get()->row();
+
+			if ($pj->jumlah_barang > 0) {
+				$dipinjam = '<span class="badge badge-success align-top badge-pill"><span class="fas fa-clone mr-1"></span>'.$pj->jumlah_barang.'</span>';
 			}else{
-				$dipinjam = 0;
-				$barang_dipinjam = '';
+				$dipinjam = '';
 			}
 			$html .= '<tr>
 							<td class="text-center align-middle">
@@ -47,15 +49,15 @@ class Inventaris extends CI_Controller {
 									<span class="fa fa-list"></span>
 								</a>
 								<div class="dropdown-menu">
-									<a href="javascript:void(0);" class="dropdown-item tambah_peminjam" data-id="'.$dp->id.'" data-jumlah="'.number_format($dp->jumlah-$dipinjam).'" data-nama="'.$dp->nama_barang.'"><span class="fas fa-clone"></span> Pinjam Barang</a>
+									<a href="javascript:void(0);" class="dropdown-item tambah_peminjam" data-id="'.$dp->id.'" data-jumlah="'.number_format($dp->jumlah-$pj->jumlah_barang).'" data-nama="'.$dp->nama_barang.'"><span class="fas fa-clone"></span> Pinjam Barang</a>
 		                            <a href="javascript:void(0);" class="dropdown-item edit_barang" data-id="'.$dp->id.'" data-nama="'.$dp->nama_barang.'" data-satuan="'.$dp->satuan.'" data-jumlah="'.$dp->jumlah.'" data-status="'.$dp->status.'"><span class="fas fa-pencil-alt"></span> Ubah Data</a>
-		                            <a href="javascript:void(0);" class="dropdown-item hapus_barang" data-id="'.$dp->id.'" data-nama="'.$dp->nama_barang.'" data-pinjam="'.$dp->jumlah_barang.'"><span class="far fa-trash-alt"></span> Hapus Data</a>
+		                            <a href="javascript:void(0);" class="dropdown-item hapus_barang" data-id="'.$dp->id.'" data-nama="'.$dp->nama_barang.'" data-pinjam="'.$pj->jumlah_barang.'"><span class="far fa-trash-alt"></span> Hapus Data</a>
 		                        </div>
 	                        </td>
 	                        <td class="align-middle text-center">'.$no++.'</td>
 	                        <td class="align-middle">'.$dp->nama_barang.'</td>
 	                        <td class="align-middle">'.$dp->satuan.'</td>
-	                        <td class="align-middle">'.$dp->jumlah.' '.$barang_dipinjam.'</td>
+	                        <td class="align-middle">'.$dp->jumlah.' '.$dipinjam.'</td>
 	                        <td class="align-middle">'.ucfirst($dp->status).'</td>
 	                   </tr>';
 				}
@@ -64,6 +66,7 @@ class Inventaris extends CI_Controller {
 							<td colspan="6" class="text-center">Tidak Ada Data</td>
 						</tr>';
 			}
+			echo $this->db->last_query($result);
 		echo $html;
 
 	}
@@ -130,9 +133,9 @@ class Inventaris extends CI_Controller {
 		$tanggal_kembali = date("Y-m-d");
 
 		$result = $this->InventarisModel->selesai_pinjaman($id, $status, $tanggal_kembali, $id_barang);
+		helper_log("other", "Menyelesaikan Pinjaman Inventaris");
 		json_encode($result);
 
-		helper_log("other", "Menyelesaikan Pinjaman Inventaris");
 	}
 
 	public function save_barang()
@@ -143,6 +146,7 @@ class Inventaris extends CI_Controller {
 		$data['status'] = 'Ada';
 
 		$result = $this->InventarisModel->simpan_barang($data);
+		helper_log("add", "Tambah data barang");
 		json_encode($result);
 	}
 
@@ -154,8 +158,8 @@ class Inventaris extends CI_Controller {
 		$data['jumlah'] = $this->input->post('jumlah');
 
 		$result = $this->InventarisModel->ubah_barang($id, $data);
-		json_encode($result);
 		helper_log("edit", "mengubah data barang");
+		json_encode($result);
 
 	}
 
@@ -164,8 +168,8 @@ class Inventaris extends CI_Controller {
 		$id = $this->input->post('id');
 
 		$result = $this->InventarisModel->hapus_barang($id);
-		json_encode($result);
 		helper_log("del", "Menghapus data barang");
+		json_encode($result);
 	}
 
 	public function save_pinjaman()
@@ -178,8 +182,8 @@ class Inventaris extends CI_Controller {
 
 
 		$result = $this->InventarisModel->simpan_pinjaman($id, $data);
-		json_encode($result);
 		helper_log("add", "membuat data pinjaman");
+		json_encode($result);
 	}
 
 }

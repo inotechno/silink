@@ -129,7 +129,7 @@
 
                             <div class="form-group">
                                 <label>Jumlah</label>
-                                <input type="number" name="jumlah" class="form-control">
+                                <input type="number" name="jumlah_pinjaman" class="form-control">
                             </div>
 
 

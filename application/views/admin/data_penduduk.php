@@ -84,7 +84,7 @@
                                        
                                         <div class="form-group">
                                             <label for="foto">Pilih Foto</label>
-                                            <input type="file" class="form-control-file" id="foto" name="foto">
+                                            <input type="file" class="form-control-file" id="foto" name="foto" accept=".gif, .jpg, .png, .jpeg">
                                         </div>
 
                                         <div class="form-group">
@@ -257,7 +257,7 @@
 
                                         <div class="form-group" id="upload_foto">
                                             <label for="foto_edit">Pilih Foto</label>
-                                            <input type="file" class="form-control-file" id="foto_edit" name="foto_edit">
+                                            <input type="file" class="form-control-file" id="foto_edit" accept=".gif, .jpg, .png, .jpeg" name="foto_edit">
                                         </div>
 
                                         <div class="form-group">

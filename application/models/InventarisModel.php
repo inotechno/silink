@@ -5,10 +5,7 @@
 	
 		function daftar_barang()
 		{
-			$this->db->select('inventaris.*,pinjaman_barang.jumlah_barang');
-			$this->db->from('inventaris');
-			$this->db->join('pinjaman_barang', 'inventaris.id = pinjaman_barang.id_barang', 'left');
-			return $this->db->get();
+			return $this->db->get('inventaris');
 		}
 
 		function daftar_peminjam()

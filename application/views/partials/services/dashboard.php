@@ -1,12 +1,9 @@
 <script src="<?= base_url('assets'); ?>/assets/extra-libs/c3/d3.min.js"></script>
 <script src="<?= base_url('assets'); ?>/assets/extra-libs/c3/c3.min.js"></script>
-<script src="<?= base_url('assets'); ?>/assets/libs/chartist/dist/chartist.min.js"></script>
-<script src="<?= base_url('assets'); ?>/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-<script src="<?= base_url('assets'); ?>/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
-<script src="<?= base_url('assets'); ?>/assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
 
 <script type="text/javascript">
-	
+$(document).ready(function() {
+    
 	dashboard();
   log_activity();
 
@@ -99,6 +96,8 @@
       });
       
     }
+
+});
 
 </script>
 

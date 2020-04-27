@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html dir="ltr" lang="en">
 
 <head>
@@ -12,11 +12,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets'); ?>/assets/images/logoicon.png">
     <title>SILINK - Sistem Informasi Lingkungan</title>
 
-    <link href="<?= base_url('assets'); ?>/assets/extra-libs/datatables/datatables.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<?= base_url('assets'); ?>/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
-    <link href="<?= base_url('assets'); ?>/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
-    <link href="<?= base_url('assets'); ?>/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="<?= base_url('assets'); ?>/dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
