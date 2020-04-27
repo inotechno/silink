@@ -35,6 +35,20 @@
 			$this->db->select('COUNT(id) as total_pemuda');
 			return $this->db->get('pemuda')->row();
 		}
+
+		function log_aktivitas()
+		{
+			$this->db->select('penduduk.id, penduduk.nama_lengkap, log.*');
+			$this->db->from('log');
+			$this->db->join('penduduk', 'penduduk.id = log.log_user', 'left');
+			return $this->db->get();
+		}
+
+		function get_jumlah_inventaris()
+		{
+			$this->db->select('COUNT(id) as total_barang');
+			return $this->db->get('inventaris')->row();
+		}
 	}
 	
 	/* End of file Dashboard.php */

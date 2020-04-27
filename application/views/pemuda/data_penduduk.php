@@ -13,9 +13,6 @@
                                         <button class="btn btn-sm btn-primary" type="button"><span class="fa fa-file-excel"></span></button>
                                         <button class="btn btn-sm btn-primary" type="button"><span class="fa fa-file-pdf"></span></button>
                                         <button class="btn btn-sm btn-primary" type="button"><span class="fa fa-print"></span></button>
-                                        <button class="btn btn-sm btn-success" type="button" data-toggle="modal" data-target="#addmodal">
-                                            <span class="fas fa-plus-square fa-lg"></span>
-                                        </button>
                                         
                                     </div>
                                     <div class="col-sm-4 col-md-3 float-right">
@@ -28,7 +25,6 @@
                                         
                                         <table class="table table-striped table-hover no-wrap small table-sm" id="penduduk" >
                                             <thead class="text-center">
-                                                <th class="align-middle p-2">Aksi</th>
                                                 <th class="align-middle">No</th>
                                                 <th class="align-middle" hidden="">ID</th>
                                                 <th class="align-middle">Foto</th>

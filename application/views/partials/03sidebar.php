@@ -63,7 +63,35 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-md-7 align-self-center">
-                        <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Good Morning <?= $this->session->userdata('nama_lengkap'); ?></h3>
+                        <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">
+                          <?php 
+                            date_default_timezone_set("Asia/Jakarta");
+
+                            $b = time();
+                            $hour = date("G",$b);
+
+                            if ($hour>=0 && $hour<=11)
+                            {
+                            echo "Selamat Pagi";
+                            }
+                            elseif ($hour >=12 && $hour<=14)
+                            {
+                            echo "Selamat Siang ";
+                            }
+                            elseif ($hour >=15 && $hour<=17)
+                            {
+                            echo "Selamat Sore ";
+                            }
+                            elseif ($hour >=17 && $hour<=18)
+                            {
+                            echo "Selamat Petang ";
+                            }
+                            elseif ($hour >=19 && $hour<=23)
+                            {
+                            echo "Selamat Malam ";
+                            }
+                          ?>
+                          <?= $this->session->userdata('nama_lengkap'); ?></h3>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">

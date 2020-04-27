@@ -10,7 +10,7 @@
 
             function daftar_penduduk(query){
                 $.ajax({
-                    url   : '<?= base_url("admin/Data_Penduduk/daftar_penduduk")?>',
+                    url   : '<?= base_url("pemuda/Data_Penduduk/daftar_penduduk")?>',
                     method:"POST",
                     data:{query:query},
                     success : function(data){
@@ -68,7 +68,7 @@
                 formData.append('foto', $('[name="foto"]')[0].files[0]);
                
                 $.ajax({
-                    url: '<?= base_url("admin/Data_Penduduk/save_penduduk")?>',
+                    url: '<?= base_url("pemuda/Data_Penduduk/save_penduduk")?>',
                     type: 'POST',
                     dataType: 'JSON',
                     data: formData,
@@ -121,7 +121,7 @@
                 formData.append('foto', $('[name="foto_edit"]')[0].files[0]);
                 
                 $.ajax({
-                    url: '<?php echo base_url('admin/data_penduduk/update_penduduk')?>',
+                    url: '<?php echo base_url('pemuda/data_penduduk/update_penduduk')?>',
                     type: 'POST',
                     dataType: 'JSON',
                     data: formData,
@@ -161,7 +161,7 @@
             var id=$('#textid').val();
             $.ajax({
                 type : "POST",
-                url  : "<?php echo base_url('admin/data_penduduk/delete_penduduk')?>",
+                url  : "<?php echo base_url('pemuda/data_penduduk/delete_penduduk')?>",
                 dataType : "JSON",
                         data : {id: id},
                         success: function(data){
@@ -195,7 +195,7 @@
                 var base_url = '<?= base_url('assets/images/')?>';
                 $.ajax({
                     type : "GET",
-                    url  : "<?php echo base_url('admin/data_penduduk/get_by_id')?>",
+                    url  : "<?php echo base_url('pemuda/data_penduduk/get_by_id')?>",
                     dataType : "JSON",
                     data : {id:id},
                     success: function(data){

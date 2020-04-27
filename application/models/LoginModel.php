@@ -11,6 +11,7 @@ class LoginModel extends CI_Model {
 		$this->db->join('penduduk', 'user_aktif.id_user = penduduk.id', 'left');
 		$this->db->where($field1);
 		$this->db->where($field2);
+		$this->db->where('user_aktif.status', 'Aktif');
 		$this->db->limit(1);
 		$q = $this->db->get();
 		if ($q->num_rows() == 0) {

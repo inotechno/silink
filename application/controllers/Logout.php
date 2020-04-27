@@ -5,6 +5,7 @@
 	
 		public function index()
 		{
+			helper_log("logout", "Melakukan Logout");
 			$this->session->sess_destroy();
 			redirect(base_url('Login'));	
 		}

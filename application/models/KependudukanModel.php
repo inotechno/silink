@@ -112,6 +112,7 @@
 
 		return $this->db->get();
  	}
+
  }
  
  /* End of file KependudukanModel.php */

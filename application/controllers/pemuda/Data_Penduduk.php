@@ -20,10 +20,10 @@
 			$this->load->view('partials/01head');
             $this->load->view('partials/02header');
             $this->load->view('partials/03sidebar');
-            $this->load->view('admin/data_penduduk');
+            $this->load->view('pemuda/data_penduduk');
             $this->load->view('partials/05footer');
             $this->load->view('partials/06plugin');
-       		$this->load->view('partials/services/penduduk');
+       		$this->load->view('partials/services/pemuda/penduduk');
 		}
 
 		public function get_by_id()
@@ -53,10 +53,6 @@
 					$foto = base_url("assets/images/penduduk/$dp->foto");
 				}
 				$html .= '<tr>
-	                        <td style="text-align:right;" class="align-middle">
-	                            <a href="javascript:void(0);" class="btn btn-outline-info btn-sm item_edit" data-id="'.$dp->id.'"><span class="far fa-edit"></span></a>
-	                            <a href="javascript:void(0);" class="btn btn-outline-danger btn-sm item_delete" data-id="'.$dp->id.'" data-nama="'.$dp->nama_lengkap.'"><span class="far fa-trash-alt"></span></a>
-	                        </td>
 	                        <td class="align-middle text-center">'.$no++.'</td>
 	                        <td hidden>'.$dp->id.'</td>
 	                        <td class="align-middle">

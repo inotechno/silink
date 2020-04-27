@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Apr 2020 pada 16.17
+-- Waktu pembuatan: 27 Apr 2020 pada 16.01
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.3
 
@@ -43,7 +43,7 @@ CREATE TABLE `bendahara_warga` (
 --
 
 INSERT INTO `bendahara_warga` (`id_keuangan`, `no_keuangan`, `nilai_keuangan`, `jenis_keuangan`, `created_by`, `created_at`, `catatan`) VALUES
-(16, '2104200001', 20000, 'debit', 1, '2020-04-21 08:57:34', 'Baru'),
+(16, '2104200001', 200000, 'debit', 1, '2020-04-25 15:27:34', 'Baru'),
 (17, '2204200001', 30000, 'credit', 1, '2020-04-22 03:27:47', 'Sumbangan\n');
 
 -- --------------------------------------------------------
@@ -87,7 +87,7 @@ CREATE TABLE `jenis_sumbangan_warga` (
 
 INSERT INTO `jenis_sumbangan_warga` (`id_jenis`, `nama_sumbangan`, `mulai_sumbangan`, `selesai_sumbangan`) VALUES
 (4, 'Sumbangan Musolah', '2020-04-20', '2020-04-24'),
-(5, 'Kursi', '2020-04-24', '2020-04-30');
+(5, 'Kursi Musolah', '2020-04-24', '2020-04-30');
 
 -- --------------------------------------------------------
 
@@ -118,8 +118,19 @@ INSERT INTO `menus` (`id`, `nama_menu`, `icon`, `link`, `sub_menu`, `level_menu`
 (7, 'Keuangan', 'dollar-sign', 'Keuangan', 0, 1),
 (8, 'Sumbangan Warga', 'archive', 'Sumbangan', 0, 1),
 (9, 'Inventaris Warga', 'briefcase', 'Inventaris', 0, 1),
-(10, 'Administrasi <h6><span class=\"badge badge-info\">Coming Soon</span></h6>', 'file-text', 'Administrasi', 0, 1),
-(11, 'Pengaturan', 'sliders', 'pengaturan', 0, 1);
+(10, 'Administrasi <h6><span class=\"badge badge-warning\">Coming Soon</span></h6>', 'file-text', 'Administrasi', 0, 1),
+(11, 'Pengaturan', 'sliders', 'pengaturan', 0, 1),
+(12, 'User Aktif', 'users', 'user', 0, 1),
+(13, 'Dashboard', 'home', 'Dashboard', 0, 2),
+(14, 'Kependudukan', 'slack', '#', 0, 2),
+(15, 'Data Penduduk', '', 'Data_Penduduk', 14, 2),
+(16, 'Keluarga', '', 'Keluarga', 14, 2),
+(17, 'Kepemudaan', 'aperture', '#', 0, 2),
+(18, 'Data Pemuda', '', 'Data_Pemuda', 17, 2),
+(19, 'Keuangan', 'dollar-sign', 'Keuangan', 0, 2),
+(20, 'Sumbangan Warga', 'archive', 'Sumbangan', 0, 2),
+(21, 'Inventaris Warga', 'briefcase', 'Inventaris', 0, 2),
+(22, 'Administrasi <h6><span class=\"badge badge-warning\">Coming Soon</span></h6>', 'file-text', 'Administrasi', 0, 2);
 
 -- --------------------------------------------------------
 
@@ -139,8 +150,7 @@ CREATE TABLE `pemuda` (
 
 INSERT INTO `pemuda` (`id`, `id_penduduk`, `jabatan`) VALUES
 (3, 1, '1'),
-(5, 2, '3'),
-(6, 3, '4');
+(6, 2, '3');
 
 -- --------------------------------------------------------
 
@@ -175,10 +185,8 @@ CREATE TABLE `penduduk` (
 --
 
 INSERT INTO `penduduk` (`id`, `nik`, `no_kk`, `nama_lengkap`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `pekerjaan`, `pendidikan`, `status_perkawinan`, `status_keluarga`, `foto`, `status`, `created_by`, `update_by`, `deleted_by`, `created_at`, `update_at`) VALUES
-(1, '1283918237789188', '1234567890123456', 'Ahmad Fatoni', 'Serang', '1997-08-20', 'Laki-Laki', 'Islam', 'Buruh', 'SMA/Sederajat', 1, '1', '1283918237789188.jpg', 'Hidup', 1, 1, 0, '2020-04-17 15:04:15', '0000-00-00 00:00:00'),
-(2, '123456789012344', '1234567890123456', 'Saiyah', 'Cilegon', '1997-08-20', 'Perempuan', 'Islam', 'Buruh', 'SD/Sederajat', 1, '2', '123456789012344.jpg', 'Hidup', 1, 1, 0, '2020-04-21 08:37:10', '0000-00-00 00:00:00'),
-(3, '21542454543454', '1234567890123456', 'Cinta', 'Serang', '2020-04-21', 'Perempuan', 'Islam', 'Karyawan Swasta', 'SMA/Sederajat', 0, '4', '21542454543454.jpeg', 'Hidup', 1, 1, NULL, '2020-04-21 08:36:59', '0000-00-00 00:00:00'),
-(4, '123456789012344', '12345678901234', 'Saiyah', 'Cilegon', '1997-08-20', 'Perempuan', 'Islam', 'Buruh', 'SD/Sederajat', 1, '1', '123456789012344.jpg', 'Hidup', 1, 1, 0, '2020-04-22 15:35:00', '0000-00-00 00:00:00');
+(1, '1283918237789188', '1234567890123456', 'Ahmad Fatoni', 'Serang', '1997-08-20', 'Laki-Laki', 'Islam', 'Buruh', 'S1', 1, '1', '1283918237789188.jpg', 'Hidup', 1, 1, 0, '2020-04-25 09:55:06', '0000-00-00 00:00:00'),
+(2, '123456789012344', '1234567890123456', 'Saiyah', 'Cilegon', '1997-08-20', 'Perempuan', 'Islam', 'Buruh', 'SD/Sederajat', 1, '2', '123456789012344.jpeg', 'Hidup', 1, 1, 0, '2020-04-25 09:49:40', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -222,6 +230,15 @@ CREATE TABLE `pinjaman_barang` (
   `tanggal_kembali` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `pinjaman_barang`
+--
+
+INSERT INTO `pinjaman_barang` (`id`, `id_barang`, `jumlah_barang`, `id_penduduk`, `tanggal_pinjam`, `tanggal_kembali`) VALUES
+(1, 1, 30, 1, '2020-04-25', '2020-04-26'),
+(2, 7, 20, 1, '2020-04-26', '2020-04-26'),
+(4, 1, 30, 1, '2020-04-26', '2020-04-26');
+
 -- --------------------------------------------------------
 
 --
@@ -244,7 +261,7 @@ CREATE TABLE `sumbangan_warga` (
 
 INSERT INTO `sumbangan_warga` (`id_sumbangan`, `id_jenis`, `nilai_sumbangan`, `sumbangan_dari`, `tanggal_sumbangan`, `created_by`, `created_at`) VALUES
 (1, 4, 200000, 1, '2020-04-23', 1, '2020-04-23 19:51:22'),
-(2, 4, 10000, 1, '2020-04-24', 1, '2020-04-24 14:11:19');
+(2, 4, 100000, 1, '2020-04-24', 1, '2020-04-25 22:27:48');
 
 -- --------------------------------------------------------
 
@@ -257,16 +274,18 @@ CREATE TABLE `user_aktif` (
   `username` varchar(30) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` text NOT NULL,
-  `id_level` int(11) NOT NULL
+  `id_level` int(11) NOT NULL,
+  `status` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `user_aktif`
 --
 
-INSERT INTO `user_aktif` (`id_user`, `username`, `email`, `password`, `id_level`) VALUES
-(0, 'basiscoding', 'basiscoding@gmail.com', '73eb75cb52161f3e0b9600494a14be52', 2),
-(1, 'admin', 'achmad.fatoni33@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 1);
+INSERT INTO `user_aktif` (`id_user`, `username`, `email`, `password`, `id_level`, `status`) VALUES
+(1, 'admin', 'achmad.fatoni33@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 1, 'Aktif'),
+(1, 'admin123', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 1, 'Aktif'),
+(2, 'admin1', '', '21232f297a57a5a743894a0e4a801fc3', 2, 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -341,12 +360,6 @@ ALTER TABLE `sumbangan_warga`
   ADD PRIMARY KEY (`id_sumbangan`);
 
 --
--- Indeks untuk tabel `user_aktif`
---
-ALTER TABLE `user_aktif`
-  ADD PRIMARY KEY (`id_user`);
-
---
 -- Indeks untuk tabel `user_group`
 --
 ALTER TABLE `user_group`
@@ -378,7 +391,7 @@ ALTER TABLE `jenis_sumbangan_warga`
 -- AUTO_INCREMENT untuk tabel `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT untuk tabel `pemuda`
@@ -390,13 +403,13 @@ ALTER TABLE `pemuda`
 -- AUTO_INCREMENT untuk tabel `penduduk`
 --
 ALTER TABLE `penduduk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `pinjaman_barang`
 --
 ALTER TABLE `pinjaman_barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `sumbangan_warga`

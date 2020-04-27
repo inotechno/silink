@@ -41,9 +41,9 @@ class Login extends CI_Controller {
 
 			$this->session->set_userdata($data_session);
 			$this->session->set_flashdata('sukses', 'Anda Berhasil Masuk Dengan Level '. $ck->nama_akses);
+			helper_log('login', 'Melakukan Login');
 			redirect(base_url($ck->link.'/Dashboard'),'refresh');
 			}
-
 		} else {
 			$this->session->set_flashdata('gagal', 'Username Atau Password Salah');
 			redirect(base_url('Login'));
