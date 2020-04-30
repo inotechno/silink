@@ -4,17 +4,22 @@
     <script src="<?= base_url('assets'); ?>/assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="<?= base_url('assets'); ?>/assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="<?= base_url('assets'); ?>/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="<?= base_url('assets'); ?>/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+
+    <script src="<?= base_url('assets') ?>/assets/extra-libs/taskboard/js/jquery.ui.touch-punch-improved.js"></script>
+    <script src="<?= base_url('assets') ?>/assets/extra-libs/taskboard/js/jquery-ui.min.js"></script>
     
     <!-- apps -->
     <script src="<?= base_url('assets'); ?>/dist/js/app-style-switcher.js"></script>
-    <script src="<?= base_url('assets'); ?>/dist/js/sidebarmenu.js"></script>
     <script src="<?= base_url('assets'); ?>/dist/js/feather.min.js"></script>
+    <script src="<?= base_url('assets'); ?>/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="<?= base_url('assets'); ?>/dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="<?= base_url('assets'); ?>/dist/js/custom.min.js"></script>
+    
     <!--This page JavaScript -->
 
     <script type="text/javascript">
+
 
     <!--
       function showTime() {
@@ -60,5 +65,7 @@
       document.getElementById('haritanggal').innerHTML = thisDay + ', ' + day + ' ' + months[month] + ' ' + year;
       //-->
     //-->
+
+    
         
     </script>

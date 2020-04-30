@@ -48,62 +48,6 @@
             echo json_encode($data);
 
         }
-
-        public function log_activity()
-        {
-            $html = '';
-            $icon = '';
-            $warna = '';
-            $title = '';
-            $result = $this->DashboardModel->log_aktivitas();
-            if ($result->num_rows() > 0) {
-            $no = 1;
-                foreach ($result->result() as $dp) {
-                if ($dp->log_tipe == 0) {
-                    $icon = 'fas fa-sign-in-alt';
-                    $title = 'Login';
-                    $warna = 'info';
-                }elseif ($dp->log_tipe == 1) {
-                    $icon = 'fas fa-sign-out-alt';
-                    $warna = 'dark';
-                    $title = 'Logout';
-                }elseif ($dp->log_tipe == 2) {
-                    $icon = 'fas fa-plus-circle';
-                    $warna = 'success';
-                    $title = 'Add Data';
-                }elseif ($dp->log_tipe == 3) {
-                    $title = 'Update Data';
-                    $warna = 'warning';
-                    $icon = 'far fa-edit';
-                }elseif ($dp->log_tipe == 4) {
-                    $title = 'Delete Data';
-                    $warna = 'danger';
-                    $icon = 'fas fa-trash-alt';
-                }else{
-                    $warna = 'light';
-                    $title = 'Other';
-                    $icon = 'far fa-list-alt';
-                }
-                $html .= '
-                        <div class="d-flex align-items-start border-left-line pb-3">
-                            <div>
-                                <a href="javascript:void(0)" class="btn btn-'.$warna.' btn-circle mb-2 btn-item">
-                                    <i class="text-white '.$icon.' fa-lg"></i>
-                                </a>
-                            </div>
-                            <div class="ml-3 mt-2">
-                                <h5 class="text-dark font-weight-medium mb-2">'.$title.'</h5>
-                                <p class="font-14 mb-2 text-muted">'.$dp->nama_lengkap.' '.ucwords($dp->log_desc).'.
-                                </p>
-                                <span class="font-weight-light font-14 text-muted">'.date('d-m-Y H:i:s', strtotime($dp->log_time)).'</span>
-                            </div>
-                        </div>
-                ';
-                    }
-                } 
-
-            echo $html;
-        }
     
     }
     

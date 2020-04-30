@@ -110,8 +110,6 @@
                                 <div class="overflow-auto p-2" style="height: 290px;">
                                     <div class="mt-4 activity">
 
-                                        
-
                                     </div>
                                 </div>
                             </div>

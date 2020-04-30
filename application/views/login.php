@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets'); ?>/assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets'); ?>/assets/images/logoicon.png">
     <title>Login - Sistem Informasi Lingkungan</title>
     <!-- Custom CSS -->
     <link href="<?= base_url('assets'); ?>/dist/css/style.min.css" rel="stylesheet">
@@ -42,12 +42,12 @@
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center position-relative"
             style="background:url(<?= base_url('assets'); ?>/assets/images/big/auth-bg.jpg) no-repeat center center;">
             <div class="auth-box row">
-                <div class="col-lg-7 col-md-5 modal-bg-img" style="background-image: url(<?= base_url('assets'); ?>/assets/images/big/3.jpg);">
+                <div class="col-lg-7 col-md-5 modal-bg-img" style="background-image: url(<?= base_url('assets'); ?>/assets/images/big/30.jpg);">
                 </div>
                 <div class="col-lg-5 col-md-7 bg-white">
                     <div class="p-3">
                         <div class="text-center">
-                            <img src="<?= base_url('assets'); ?>/assets/images/big/icon.png" alt="wrapkit">
+                            <img src="<?= base_url('assets'); ?>/assets/images/big/icon-login.png" alt="wrapkit">
                         </div>
                         <h2 class="mt-3 text-center">Masuk</h2>
                         <p class="text-center">Masukan Email dan Password untuk Masuk Ke Dalam Panel Aplikasi.</p>
@@ -71,7 +71,7 @@
                                     <button type="submit" class="btn btn-block btn-dark">Masuk</button>
                                 </div>
                                 <div class="col-lg-12 text-center mt-5">
-                                    Tidak Punya Akun ? <a href="#" class="text-danger">Daftar</a>
+                                    <a href="#" class="text-danger">Hubungi Kami</a>
                                 </div>
                             </div>
                         </form>

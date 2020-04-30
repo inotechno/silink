@@ -10,7 +10,7 @@
 
             function daftar_pemuda(query){
                 $.ajax({
-                    url   : '<?= base_url("admin/Data_Pemuda/daftar_pemuda")?>',
+                    url   : '<?= base_url("pemuda/Data_Pemuda/daftar_pemuda")?>',
                     method:"POST",
                     data:{query:query},
                     success : function(data){
@@ -27,7 +27,7 @@
             $('#btn_tambah_data').on('click', function(){
                 $('#add_modal_pemuda').modal('show');
                 $.ajax({
-                    url   : '<?= base_url("admin/Data_Pemuda/daftar_penduduk")?>',
+                    url   : '<?= base_url("pemuda/Data_Pemuda/daftar_penduduk")?>',
                     method:"POST",
                     success : function(data){
                         $('.select-nama').html(data);
@@ -77,7 +77,7 @@
                 $('#insert-form').append($html);
                 $('#jumlah-form').val(nextform);
                 $.ajax({
-                    url   : '<?= base_url("admin/Data_Pemuda/daftar_penduduk")?>',
+                    url   : '<?= base_url("pemuda/Data_Pemuda/daftar_penduduk")?>',
                     method:"POST",
                     success : function(data){
                         $('.select-nama').html(data);
@@ -102,7 +102,7 @@
                 });
                 
                 $.ajax({
-                    url: '<?= base_url("admin/Data_Pemuda/save_pemuda")?>',
+                    url: '<?= base_url("pemuda/Data_Pemuda/save_pemuda")?>',
                     type: 'POST',
                     data: {id_penduduk:id_penduduk, jabatan:jabatan},
                     success: function(data){
@@ -147,7 +147,7 @@
                 jabatan= $('[name="jabatan"]').val();
                 $.ajax({
                     type : "POST",
-                    url  : "<?php echo base_url('admin/Data_Pemuda/update_pemuda')?>",
+                    url  : "<?php echo base_url('pemuda/Data_Pemuda/update_pemuda')?>",
                     dataType:"JSON",
                     data : {id:id, jabatan:jabatan},
                     success: function(data){
@@ -168,7 +168,7 @@
                 var id=$('#textid').val();
                 $.ajax({
                     type : "POST",
-                    url  : "<?php echo base_url('admin/Data_Pemuda/delete_pemuda')?>",
+                    url  : "<?php echo base_url('pemuda/Data_Pemuda/delete_pemuda')?>",
                     dataType : "JSON",
                     data : {id: id},
                     success: function(data){

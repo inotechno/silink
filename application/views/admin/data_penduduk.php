@@ -222,7 +222,7 @@
                             <div class="text-center">
                                 <h4 class="mt-2"><i class="fa fa-exclamation-triangle"></i> Hati-Hati !</h4>
                                 <input type="hidden" name="id" id="textid" value="">
-                                <p class="mt-3">Anda Akan Menghapus Data <span id="hapusnama"></span> ?</p>
+                                <p class="mt-3">Anda Akan Menghapus Data <span id="hapusnama"></span> Pada Data Penduduk dan Data Pemuda ?</p>
                                 <button type="button" class="btn btn-sm btn-light btn-rounded my-2" data-dismiss="modal">Batal</button>
                                 <button type="button" id="delete_btn" class="btn btn-sm btn-rounded btn-danger">Hapus</button>
                             </div>

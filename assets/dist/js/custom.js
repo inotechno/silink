@@ -41,6 +41,7 @@ $(function () {
     // ==============================================================
     // Perfact scrollbar
     // ==============================================================
+
     $('.message-center, .customizer-body, .scrollable, .scroll-sidebar').perfectScrollbar({
         wheelPropagation: !0
     });

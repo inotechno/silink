@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Rubik:300,400,500,700&display=swap");
 @import url(icons/font-awesome/css/fontawesome-all.css);
-@import url(icons/simple-line-icons/css/simple-line-icons.css);
 @import url(icons/themify-icons/themify-icons.css);
 .topbar .dropdown-menu .with-arrow > span {
   transform: rotate(45deg);

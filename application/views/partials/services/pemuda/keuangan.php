@@ -6,7 +6,7 @@
 
         function daftar_keuangan(query){
             $.ajax({
-                url   : '<?= base_url("admin/keuangan/daftar_keuangan")?>',
+                url   : '<?= base_url("pemuda/keuangan/daftar_keuangan_pemuda")?>',
                 method:"POST",
                 data:{query:query},
                 success : function(data){
@@ -18,7 +18,7 @@
 
         function info_debit_credit(){
             $.ajax({
-                url   : '<?= base_url("admin/keuangan/info_debit_credit")?>',
+                url   : '<?= base_url("pemuda/keuangan/info_debit_credit_pemuda")?>',
                 method:"POST",
                 dataType:'json',
                 success : function(data){
@@ -53,7 +53,7 @@
         $('#btn_tambah_data').on('click', function(){
             $('#add_modal_keuangan').modal('show');
             $.ajax({
-            	url: '<?= base_url('admin/keuangan/get_id') ?>',
+            	url: '<?= base_url('pemuda/keuangan/get_id_pemuda') ?>',
             	type: 'POST',
             	dataType: 'json',
             	success:function(no) {
@@ -70,7 +70,7 @@
         	var catatan = $('[name="catatan"]').val();
 
         	$.ajax({
-        		url: '<?= base_url('admin/keuangan/save_keuangan') ?>',
+        		url: '<?= base_url('pemuda/keuangan/save_keuangan_pemuda') ?>',
         		type: 'POST',
         		dataType: 'JSON',
         		data: {no_keuangan:no_keuangan, nilai_keuangan:nilai_keuangan, jenis_keuangan:jenis_keuangan, catatan:catatan},
@@ -111,7 +111,7 @@
         	var catatan = $('[name="catatan_edit"]').val();
 
         	$.ajax({
-        		url: '<?= base_url('admin/keuangan/update_keuangan') ?>',
+        		url: '<?= base_url('pemuda/keuangan/update_keuangan_pemuda') ?>',
         		type: 'POST',
         		dataType: 'JSON',
         		data: {id_keuangan:id_keuangan, nilai_keuangan:nilai_keuangan, jenis_keuangan:jenis_keuangan, catatan:catatan},

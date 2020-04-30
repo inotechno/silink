@@ -59,6 +59,7 @@
 
  	function hapus_penduduk($id)
  	{
+ 		$this->db->delete('pemuda', array('id_penduduk' => $id));
  		return $this->db->delete('penduduk', array('id' => $id));
  	}
 

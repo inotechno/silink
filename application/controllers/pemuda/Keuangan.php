@@ -17,25 +17,25 @@
 			$this->load->view('partials/01head');
             $this->load->view('partials/02header');
             $this->load->view('partials/03sidebar');
-            $this->load->view('admin/keuangan');
+            $this->load->view('pemuda/keuangan');
             $this->load->view('partials/05footer');
             $this->load->view('partials/06plugin');
-       		$this->load->view('partials/services/keuangan');
+       		$this->load->view('partials/services/pemuda/keuangan');
 		}
 
-		public function get_id()
+		public function get_id_pemuda()
 		{
 			$no = $this->KeuanganModel->get_id();
 			echo json_encode($no);
 		}
 
-		public function info_debit_credit()
+		public function info_debit_credit_pemuda()
 		{
-			$data = $this->KeuanganModel->info_debit_credit();
+			$data = $this->KeuanganModel->info_debit_credit_pemuda();
 			echo json_encode($data);	
 		}
 
-		public function daftar_keuangan()
+		public function daftar_keuangan_pemuda()
 		{
 			$html = '';
 			$query = '';
@@ -44,7 +44,7 @@
 			  {
 			   $query = $this->input->post('query');
 			  }
-			$data = $this->KeuanganModel->daftar_keuangan($query);
+			$data = $this->KeuanganModel->daftar_keuangan_pemuda($query);
 			if ($data->num_rows() > 0) {
 				$no = 1;
 
@@ -76,7 +76,7 @@
 			echo $html;
 		}
 
-		public function save_keuangan()
+		public function save_keuangan_pemuda()
 		{
 			$data['no_keuangan'] = $this->input->post('no_keuangan');
 			$data['nilai_keuangan'] = $this->input->post('nilai_keuangan');
@@ -85,13 +85,13 @@
 			$data['created_by'] = $this->session->userdata('id');
 			$data['created_at'] = date("Y-m-d H:i:s");
 
-			$result = $this->KeuanganModel->simpan_keuangan($data);
+			$result = $this->KeuanganModel->simpan_keuangan_pemuda($data);
 			echo json_encode($result);
 			helper_log("add", "membuat data keuangan");
 
 		}
 
-		public function update_keuangan()
+		public function update_keuangan_pemuda()
 		{
 
 			$id_keuangan = $this->input->post('id_keuangan');
@@ -102,7 +102,7 @@
 			$data['created_by'] = $this->session->userdata('id');
 			$data['created_at'] = date("Y-m-d H:i:s");
 
-			$result = $this->KeuanganModel->ubah_keuangan($id_keuangan, $data);
+			$result = $this->KeuanganModel->ubah_keuangan_pemuda($id_keuangan, $data);
 			echo json_encode($result);
 			helper_log("edit", "mengubah data keuangan");
 

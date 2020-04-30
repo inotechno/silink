@@ -2,8 +2,7 @@
 			<!-- footer -->
             <!-- ============================================================ -->
             <footer class="footer text-center text-muted">
-                Created By BasisCoding. Designed and Developed by <a
-                    href="https://wrappixel.com">WrapPixel</a>.
+                Created By BasisCoding. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
             </footer>
             <!-- ============================================================ -->
             <!-- End footer -->
