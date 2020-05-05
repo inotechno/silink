@@ -6,7 +6,7 @@
 			$('.btn-setting').html('Ubah');
 			$('.btn-setting').attr('id', 'ubah_pengaturan');
 			$.ajax({
-				url: '<?= base_url('admin/pengaturan/lihat_data') ?>',
+				url: '<?= base_url('admin/Pengaturan/lihat_data') ?>',
 				type: 'POST',
 				dataType: 'JSON',
 				success:function (data) {
@@ -63,7 +63,7 @@
 				var id_rt = $('[name="id_rt"]').val();
 
 				$.ajax({
-					url: '<?= base_url('admin/pengaturan/update_pengaturan') ?>',
+					url: '<?= base_url('admin/Pengaturan/update_pengaturan') ?>',
 					type: 'POST',
 					dataType: 'JSON',
 					data: {nama_lingkungan:nama_lingkungan, alamat:alamat, rt:rt, rw:rw, prov:prov, kota:kota, kec:kec, kel:kel, id_rt:id_rt},

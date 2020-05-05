@@ -19,13 +19,14 @@
                                 <div class="row">
                                     <div class="col table-responsive">
                                         
-                                        <table class="table table-bordered table-striped table-hover no-wrap small table-sm" id="keluarga" >
+                                        <table class="table table-bordered table-striped table-hover no-wrap small table-sm" id="keluarga">
                                             <thead class="text-center">
                                                 <th class="align-middle p-2">AKSI</th>
                                                 <th class="align-middle">NO</th>
                                                 <th class="align-middle">NOMOR KK</th>
                                                 <th class="align-middle">KEPALA KELUARGA</th>
                                                 <th class="align-middle">JUMLAH ANGGOTA</th>
+                                                <th class="align-middle">KARTU KELUARGA</th>
 
                                             </thead>
                                             <tbody id="show_data_keluarga"></tbody>
@@ -85,6 +86,30 @@
                                 <tbody id="show_data_anggota_keluarga"></tbody>
                             </table>
                         </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+
+        <div id="ganti-kk" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ganti-kk" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header modal-colored-header bg-info">
+                        <h4 class="modal-title" id="viewModalTitle">UPLOAD KARTU KELUARGA <span class="nama_kk"></span></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <form enctype="multipart/form-data" method="post">
+                            <div class="form-group">
+                                <input type="hidden" name="no_kk">
+                                <label>Upload</label>
+                                <input type="file" name="kk" class="form-control-file" required accept=".gif, .jpg, .png, .jpeg">
+                            </div>
+
+                            <button id="save-kk" class="btn btn-primary btn-sm btn-success">Kirim</button>
+                        </form>
+
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->

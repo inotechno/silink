@@ -97,7 +97,7 @@
 
  	function daftar_keluarga()
  	{
- 		$this->db->select('COUNT(status) as jumlah_anggota, no_kk, status_keluarga, nama_lengkap');
+ 		$this->db->select('COUNT(status) as jumlah_anggota, no_kk, status_keluarga, nama_lengkap, galeri.url as foto_kk');
 		$this->db->select('
 			CASE 
 			WHEN status_keluarga = 1 THEN "KEPALA KELUARGA" 
@@ -108,10 +108,16 @@
 			END as statuskeluarga', false);
 		
 		$this->db->from('penduduk');
+		$this->db->join('galeri', 'galeri.id_galeri = penduduk.no_kk', 'left');
 		$this->db->group_by('no_kk');
 		$this->db->having('status_keluarga', 1);
 
 		return $this->db->get();
+ 	}
+
+ 	function simpan_kk($data)
+ 	{
+ 		return $this->db->insert('galeri', $data);
  	}
 
  }

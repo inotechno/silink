@@ -5,7 +5,7 @@
 
 	function daftar_sumbangan(jenis){
         $.ajax({
-            url   : '<?= base_url("admin/sumbangan/daftar_sumbangan_warga")?>',
+            url   : '<?= base_url("admin/Sumbangan/daftar_sumbangan_warga")?>',
             method:"POST",
             data:{jenis:jenis},
             success : function(data){
@@ -17,7 +17,7 @@
 	
 	function jenis_sumbangan(){
         $.ajax({
-            url   : '<?= base_url("admin/sumbangan/daftar_jenis_sumbangan")?>',
+            url   : '<?= base_url("admin/Sumbangan/daftar_jenis_sumbangan")?>',
             method:"POST",
             success : function(data){
                 $('#show_data_jenis_sumbangan').html(data);
@@ -58,7 +58,7 @@
     	var selesai_sumbangan = $('[name="selesai_sumbangan"]').val();
 
     	$.ajax({
-    		url: '<?= base_url('admin/sumbangan/save_jenis_sumbangan') ?>',
+    		url: '<?= base_url('admin/Sumbangan/save_jenis_sumbangan') ?>',
     		type: 'POST',
     		dataType: 'JSON',
     		data: {nama_sumbangan:nama_sumbangan, mulai_sumbangan:mulai_sumbangan, selesai_sumbangan:selesai_sumbangan},
@@ -94,7 +94,7 @@
     	var selesai_sumbangan = $('[name="selesai_sumbangan_edit"]').val();
 
     	$.ajax({
-    		url: '<?= base_url('admin/sumbangan/edit_jenis_sumbangan') ?>',
+    		url: '<?= base_url('admin/Sumbangan/edit_jenis_sumbangan') ?>',
     		type: 'POST',
     		dataType: 'JSON',
     		data: {id_jenis:id_jenis, nama_sumbangan:nama_sumbangan, mulai_sumbangan:mulai_sumbangan, selesai_sumbangan:selesai_sumbangan},
@@ -123,7 +123,7 @@
     	var id_jenis = $('[name="id_jenis_hapus"]').val();
 
     	$.ajax({
-    		url: '<?= base_url('admin/sumbangan/hapus_jenis_sumbangan') ?>',
+    		url: '<?= base_url('admin/Sumbangan/hapus_jenis_sumbangan') ?>',
     		type: 'POST',
     		dataType: 'JSON',
     		data: {id_jenis:id_jenis},
@@ -150,7 +150,7 @@
     	var tanggal_sumbangan = $('[name="tanggal_sumbangan_warga"]').val();
 
     	$.ajax({
-    		url: '<?= base_url('admin/sumbangan/save_sumbangan') ?>',
+    		url: '<?= base_url('admin/Sumbangan/save_sumbangan') ?>',
     		type: 'POST',
     		dataType: 'JSON',
     		data: {id_jenis:id_jenis, nilai_sumbangan:nilai_sumbangan, sumbangan_dari:sumbangan_dari, tanggal_sumbangan:tanggal_sumbangan},
@@ -189,7 +189,7 @@
     	var tanggal_sumbangan = $('[name="edit_tanggal_sumbangan_warga"]').val();
 
     	$.ajax({
-    		url: '<?= base_url('admin/sumbangan/edit_sumbangan') ?>',
+    		url: '<?= base_url('admin/Sumbangan/edit_sumbangan') ?>',
     		type: 'POST',
     		dataType: 'JSON',
     		data: {id_sumbangan:id_sumbangan,id_jenis:id_jenis, nilai_sumbangan:nilai_sumbangan, sumbangan_dari:sumbangan_dari, tanggal_sumbangan:tanggal_sumbangan},
@@ -218,7 +218,7 @@
     	var id_sumbangan = $('[name="id_sumbangan_hapus"]').val();
 
     	$.ajax({
-    		url: '<?= base_url('admin/sumbangan/hapus_sumbangan') ?>',
+    		url: '<?= base_url('admin/Sumbangan/hapus_sumbangan') ?>',
     		type: 'POST',
     		dataType: 'JSON',
     		data: {id_sumbangan:id_sumbangan},

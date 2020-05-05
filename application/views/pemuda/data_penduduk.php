@@ -28,9 +28,7 @@
                                                 <th class="align-middle">No</th>
                                                 <th class="align-middle" hidden="">ID</th>
                                                 <th class="align-middle">Foto</th>
-                                                <th class="align-middle">NIK</th>
                                                 <th class="align-middle">Nama Lengkap</th>
-                                                <th class="align-middle">KK</th>
                                                 <th class="align-middle">Tempat Lahir</th>
                                                 <th class="align-middle">Tanggal Lahir</th>
                                                 <th class="align-middle">Jenis Kelamin</th>

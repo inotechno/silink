@@ -3,7 +3,7 @@
 		view();
 		function view() {
 			$.ajax({
-				url: '<?= base_url('profil/view') ?>',
+				url: '<?= base_url('Profil/view') ?>',
 				type: 'POST',
 				dataType: 'json',
 				success:function (data) {
@@ -18,11 +18,6 @@
 
 			});
 			
-		}
-
-		function validasi() {
-			var password = $('[name="password"]').val();
-
 		}
 
 		$('[name="konfir_password"]').keyup(function() {
@@ -42,7 +37,7 @@
 				var username = $('[name="username"]').val();
 				var password = $('[name="password"]').val();
 				$.ajax({
-					url: '<?= base_url('profil/update') ?>',
+					url: '<?= base_url('Profil/update') ?>',
 					type: 'POST',
 					dataType: 'json',
 					data: {username:username, email:email, password:password},

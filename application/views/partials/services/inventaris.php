@@ -40,6 +40,9 @@ $(document).ready(function() {
 				$('#add_barang').modal('hide');
 				$("#alert-success-text").html('Data Berhasil di Tambahkan');
                 $("#alert-success").fadeIn().delay(2000).fadeOut();
+                $('[name="nama_barang"]').val('');
+				$('[name="satuan"]').val('');
+				$('[name="jumlah"]').val('');
                 daftar_barang();
 			}
 		});
@@ -72,6 +75,10 @@ $(document).ready(function() {
 			type: 'POST',
 			data: {id_barang:id_barang, id_penduduk:id_penduduk,jumlah_barang:jumlah_barang},
 			success:function(data) {
+				$('[name="id_barang"]').val('');
+				$('[name="id_penduduk"]').val('');
+				$('[name="jumlah_pinjaman"]').val('');
+
 				$('#add_pinjaman').modal('hide');
 				$("#alert-success-text").html('Data Berhasil di Tambahkan');
                 $("#alert-success").fadeIn().delay(2000).fadeOut();

@@ -35,6 +35,7 @@ class Inventaris extends CI_Controller {
 			$this->db->select('SUM(jumlah_barang) as jumlah_barang');
 			$this->db->from('pinjaman_barang');
 			$this->db->where('id_barang', $dp->id);
+			$this->db->where('tanggal_kembali', NULL);
 			$pj = $this->db->get()->row();
 
 			if ($pj->jumlah_barang > 0) {

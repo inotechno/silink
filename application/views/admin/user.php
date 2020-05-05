@@ -63,7 +63,8 @@
                     		<label>Level</label>
                     		<select class="form-control" name="id_level">
                     			<option value="1">Administrator</option>
-                    			<option value="2">Pemuda</option>
+                                <option value="2">Pemuda</option>
+                    			<option value="3">User</option>
                     		</select>
                     	</div>
                     </form>
@@ -131,6 +132,7 @@
                             <select class="form-control" name="id_level_add">
                                 <option value="1">Administrator</option>
                                 <option value="2">Pemuda</option>
+                                <option value="3">User</option>
                             </select>
                         </div>
                     </form>

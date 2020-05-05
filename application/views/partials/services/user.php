@@ -4,7 +4,7 @@
 		
 		function daftar_user() {
 			$.ajax({
-	            url   : '<?= base_url("admin/user/show_user")?>',
+	            url   : '<?= base_url("admin/User/show_user")?>',
 	            method:"POST",
 	            success : function(data){
 	                $('#show_user').html(data);
@@ -33,7 +33,7 @@
 			var id_level = $('[name="id_level"]').val();
 
 			$.ajax({
-				url: '<?= base_url('admin/user/update_user') ?>',
+				url: '<?= base_url('admin/User/update_user') ?>',
 				type: 'POST',
 				dataType: 'JSON',
 				data: {id_level:id_level, username:username, email:email},
@@ -63,7 +63,7 @@
 			var username = $('[name="username"]').val();
 
 			$.ajax({
-				url: '<?= base_url('admin/user/delete_user') ?>',
+				url: '<?= base_url('admin/User/delete_user') ?>',
 				type: 'POST',
 				dataType: 'JSON',
 				data: {username:username},
@@ -83,7 +83,7 @@
 			var status = $(this).attr('data-ganti');
 			
 			$.ajax({
-				url: '<?= base_url('admin/user/change_status') ?>',
+				url: '<?= base_url('admin/User/change_status') ?>',
 				type: 'POST',
 				dataType: 'JSON',
 				data: {username:username, status:status},
@@ -104,7 +104,7 @@
 			var id_level = $('[name="id_level_add"]').val();
 
 			$.ajax({
-				url: '<?= base_url('admin/user/add_user') ?>',
+				url: '<?= base_url('admin/User/add_user') ?>',
 				type: 'POST',
 				dataType: 'JSON',
 				data:{id_user:id_user, username:username, password:password, email:email, id_level:id_level},

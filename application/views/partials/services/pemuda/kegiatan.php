@@ -13,7 +13,7 @@
 	  		var end = $('[name="end"]').val();
 	  		var color = $('[name="color"]').val();
 	  		$.ajax({
-		       url:'<?= base_url('pemuda/kegiatan/add_kegiatan') ?>',
+		       url:'<?= base_url('pemuda/Kegiatan/add_kegiatan') ?>',
 		       type:"POST",
 		       data:{title:title, start:start, end:end, color:color},
 		       success:function(){
@@ -33,7 +33,7 @@
 	  		var color = $('[name="color_edit"]').val();
 	  		
 	  		$.ajax({
-		      url:"<?= base_url('pemuda/kegiatan/update_kegiatan') ?>",
+		      url:"<?= base_url('pemuda/Kegiatan/update_kegiatan') ?>",
 		      type:"POST",
 		      data:{title:title, start:start, end:end, id:id, color:color},
 		      success:function(){
@@ -49,7 +49,7 @@
 	  		var id = $('[name="id_hapus"]').val();
 
 	  		$.ajax({
-		      url:"<?= base_url('pemuda/kegiatan/delete_kegiatan') ?>",
+		      url:"<?= base_url('pemuda/Kegiatan/delete_kegiatan') ?>",
 		      type:"POST",
 		      data:{id:id},
 		      success:function(){
@@ -69,7 +69,7 @@
 	     center:'title',
 	     right:'month,agendaWeek,agendaDay'
 	    },
-	    events: 'kegiatan/daftar_kegiatan',
+	    events: 'Kegiatan/daftar_kegiatan',
 	    selectable:true,
 	    selectHelper:true,
 
@@ -84,7 +84,7 @@
 	     var title = event.title;
 	     var id = event.id;
 	     $.ajax({
-	      url:"<?= base_url('pemuda/kegiatan/update_kegiatan') ?>",
+	      url:"<?= base_url('pemuda/Kegiatan/update_kegiatan') ?>",
 	      type:"POST",
 	      data:{title:title, start:start, end:end, id:id},
 	      success:function(){
@@ -101,7 +101,7 @@
 	     var color = event.color;
 	     var id = event.id;
 	     $.ajax({
-	      url:"<?= base_url('pemuda/kegiatan/update_kegiatan') ?>",
+	      url:"<?= base_url('pemuda/Kegiatan/update_kegiatan') ?>",
 	      type:"POST",
 	      data:{title:title, start:start, end:end, id:id, color:color},
 	      success:function(){

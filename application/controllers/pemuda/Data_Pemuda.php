@@ -17,7 +17,7 @@
 			$this->load->view('partials/01head');
             $this->load->view('partials/02header');
             $this->load->view('partials/03sidebar');
-            $this->load->view('admin/data_pemuda');
+            $this->load->view('pemuda/data_pemuda');
             $this->load->view('partials/05footer');
             $this->load->view('partials/06plugin');
        		$this->load->view('partials/services/pemuda');

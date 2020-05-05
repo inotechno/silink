@@ -65,12 +65,16 @@ class Keluarga extends CI_Controller {
 	public function daftar_keluarga()
 	{
 		$html = '';
+		$fotokk = '';
 		$data = $this->KependudukanModel->daftar_keluarga();
-		echo $this->db->last_query($data);
 		if ($data->num_rows() > 0) {
 			$no = 1;
 			foreach ($data->result() as $dp) {
-			
+			if ($dp->foto_kk != 0) {
+				$fotokk = '<a class="btn btn-success btn-sm" href="'.base_url('assets/images/galeri/'.$dp->foto_kk).'" download>Download</a>';
+			}else{
+				$fotokk = '<span class="badge badge-warning text-white">KK Tidak Ada</span>';
+			}
 			$html .= '<tr>
                         <td class="align-middle text-center">
                             <a href="javascript:void(0);" class="btn btn-outline-info btn-sm item_view" data-kk="'.$dp->no_kk.'" data-namakk="'.$dp->nama_lengkap.'"><span class="fas fa-eye"></span></a>
@@ -78,7 +82,8 @@ class Keluarga extends CI_Controller {
                         <td class="align-middle text-center">'.$no++.'</td>
                         <td class="align-middle">'.$dp->no_kk.'</td>
                         <td class="align-middle">'.strtoupper($dp->nama_lengkap).'</td>
-                        <td class="align-middle">'.$dp->jumlah_anggota.'</td>
+                        <td class="align-middle text-center">'.$dp->jumlah_anggota.'</td>
+                        <td class="align-middle text-center">'.$fotokk.'<button class="ml-2 btn btn-sm btn-info upload_kk" data-kk="'.$dp->no_kk.'">Upload</button></td>
                     </tr>';
 			}
 		} else {
@@ -87,6 +92,40 @@ class Keluarga extends CI_Controller {
 						</tr>';
 		}
 		echo $html;
+	}
+
+	public function save_kk()
+	{
+
+		$config['upload_path'] = './assets/images/galeri/';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['max_size'] = '1024';
+        $config['file_name'] = $this->input->post('no_kk');
+        $this->load->library('upload', $config);
+
+        $cek = $this->db->get_where('galeri',array('id_galeri' => $this->input->post('no_kk')));
+        if ($cek->num_rows() > 0) {
+			$this->db->delete('galeri', array('id_galeri' => $this->input->post('no_kk'))); 
+			@unlink("./assets/images/galeri/".$cek->row()->url);  	
+        }
+
+        if($this->upload->do_upload("kk")){
+			$kk = $this->upload->file_name;
+		} else {
+			$kk = '';
+		}
+
+        $data = array(
+        	'id_galeri' => $this->input->post('no_kk'),
+         	'url'=>$kk,
+         	'ket'=>$this->input->post('no_kk'),
+         	'created_at'=>date('Y-m-d H:i:s')
+         );
+
+        $result = $this->KependudukanModel->simpan_kk($data);
+        echo json_encode($result);
+		helper_log("add", "Menambah File Kartu Keluarga");
+
 	}
 
 }

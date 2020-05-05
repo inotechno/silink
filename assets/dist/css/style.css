@@ -7727,8 +7727,8 @@ Preloader
   width: 64px;
   height: 64px;
   position: absolute;
-  top: calc(50% - 3.5px);
-  left: calc(50% - 3.5px); }
+  top: calc(48% - 20px);
+  left: calc(48% - 20px); }
   .lds-ripple .lds-pos {
     position: absolute;
     border: 2px solid #2962FF;

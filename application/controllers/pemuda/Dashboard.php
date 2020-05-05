@@ -17,10 +17,10 @@
             $this->load->view('partials/01head');
             $this->load->view('partials/02header');
             $this->load->view('partials/03sidebar');
-            $this->load->view('admin/dashboard');
+            $this->load->view('pemuda/dashboard');
             $this->load->view('partials/05footer');
             $this->load->view('partials/06plugin');
-            $this->load->view('partials/services/Dashboard');
+            $this->load->view('partials/services/pemuda/dashboard');
         }
 
         public function get_jumlah()

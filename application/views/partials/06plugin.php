@@ -20,8 +20,6 @@
 
     <script type="text/javascript">
 
-
-    <!--
       function showTime() {
           var a_p = "";
           var today = new Date();
@@ -63,8 +61,6 @@
       var yy = date.getYear();
       var year = (yy < 1000) ? yy + 1900 : yy;
       document.getElementById('haritanggal').innerHTML = thisDay + ', ' + day + ' ' + months[month] + ' ' + year;
-      //-->
-    //-->
 
     
         

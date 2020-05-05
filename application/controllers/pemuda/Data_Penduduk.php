@@ -58,9 +58,7 @@
 	                        <td class="align-middle">
 	                        	<a target="_blank" href="'.$foto.'"><img class="" width="40" height="50" src="'.$foto.'"></a>
 	                        </td>
-	                        <td class="align-middle">'.$dp->nik.'</td>
 	                        <td class="align-middle">'.$dp->nama_lengkap.'</td>
-	                        <td class="align-middle">'.$dp->no_kk.'</td>
 	                        <td class="align-middle">'.$dp->tempat_lahir.'</td>
 	                        <td class="align-middle">'.date("d-m-Y", strtotime($dp->tanggal_lahir)).'</td>
 	                        <td class="align-middle">'.$dp->jenis_kelamin.'</td>

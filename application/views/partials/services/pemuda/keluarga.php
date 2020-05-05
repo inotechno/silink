@@ -6,7 +6,7 @@
 
             function daftar_keluarga(query){
                 $.ajax({
-                    url   : '<?= base_url("admin/keluarga/daftar_keluarga")?>',
+                    url   : '<?= base_url("pemuda/Keluarga/daftar_keluarga")?>',
                     method:"POST",
                     data:{query:query},
                     success : function(data){
@@ -26,7 +26,7 @@
                 var base_url = '<?= base_url('assets/images/')?>';
                 $.ajax({
                     type : "GET",
-                    url  : "<?php echo base_url('admin/keluarga/view_keluarga')?>",
+                    url  : "<?php echo base_url('pemuda/Keluarga/view_keluarga')?>",
                     data : {kk:kk},
                     success: function(data){
                         $('#viewModal').modal('show');

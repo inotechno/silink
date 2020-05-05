@@ -10,7 +10,7 @@
                                 <div class="row mb-2">
                                     <div class="col-sm mb-2">
                                         
-                                        <button class="btn btn-sm btn-primary" type="button"><span class="fa fa-file-excel"></span></button>
+                                        <a href="<?= base_url('admin/data_penduduk/export') ?>" class="btn btn-sm btn-primary" type="button"><span class="fa fa-file-excel"></span></a>
                                         <button class="btn btn-sm btn-primary" type="button"><span class="fa fa-file-pdf"></span></button>
                                         <button class="btn btn-sm btn-primary" type="button"><span class="fa fa-print"></span></button>
                                         <button class="btn btn-sm btn-success" type="button" data-toggle="modal" data-target="#addmodal">

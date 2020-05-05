@@ -125,7 +125,7 @@
                     <div class="col-md-5  mt-2 align-self-center">
                         <div class="customize-input float-right">
                             <span class="form-control bg-white border-0 custom-shadow custom-radius text-muted">
-                                Hari <p class="d-inline" id="haritanggal"></p> <p class="d-inline" id="clock"></p>
+                                <p class="d-inline" id="haritanggal"></p> <p class="d-inline" id="clock"></p>
                             </span>
                         </div>
                     </div>

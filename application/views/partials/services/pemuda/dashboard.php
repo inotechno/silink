@@ -8,7 +8,7 @@
 
 	function dashboard() {
 		$.ajax({
-			url: '<?= base_url('admin/dashboard/get_jumlah') ?>',
+			url: '<?= base_url('admin/Dashboard/get_jumlah') ?>',
 			type: 'POST',
 			dataType: 'JSON',
 			success: function(data){
@@ -87,7 +87,7 @@
 
     function log_activity() {
       $.ajax({
-        url: '<?= base_url('admin/dashboard/log_activity') ?>',
+        url: '<?= base_url('admin/Dashboard/log_activity') ?>',
         type: 'POST',
         success:function (data) {
           $('.activity').html(data);
