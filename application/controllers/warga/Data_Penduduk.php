@@ -20,10 +20,10 @@
 			$this->load->view('partials/01head');
             $this->load->view('partials/02header');
             $this->load->view('partials/03sidebar');
-            $this->load->view('user/data_penduduk');
+            $this->load->view('warga/data_penduduk');
             $this->load->view('partials/05footer');
             $this->load->view('partials/06plugin');
-       		$this->load->view('partials/services/pemuda/penduduk');
+       		$this->load->view('partials/services/warga/penduduk');
 		}
 
 		public function get_by_id()
@@ -58,9 +58,7 @@
 	                        <td class="align-middle">
 	                        	<a target="_blank" href="'.$foto.'"><img class="" width="40" height="50" src="'.$foto.'"></a>
 	                        </td>
-	                        <td class="align-middle">'.$dp->nik.'</td>
 	                        <td class="align-middle">'.$dp->nama_lengkap.'</td>
-	                        <td class="align-middle">'.$dp->no_kk.'</td>
 	                        <td class="align-middle">'.$dp->tempat_lahir.'</td>
 	                        <td class="align-middle">'.date("d-m-Y", strtotime($dp->tanggal_lahir)).'</td>
 	                        <td class="align-middle">'.$dp->jenis_kelamin.'</td>

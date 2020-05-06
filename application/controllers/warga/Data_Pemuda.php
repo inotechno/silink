@@ -17,10 +17,10 @@
 			$this->load->view('partials/01head');
             $this->load->view('partials/02header');
             $this->load->view('partials/03sidebar');
-            $this->load->view('user/data_pemuda');
+            $this->load->view('warga/data_pemuda');
             $this->load->view('partials/05footer');
             $this->load->view('partials/06plugin');
-       		$this->load->view('partials/services/pemuda');
+       		$this->load->view('partials/services/warga/pemuda');
 		}
 
 		public function daftar_pemuda()
@@ -42,10 +42,6 @@
 					$foto = base_url("assets/images/penduduk/$dp->foto");
 				}
 				$html .= '<tr>
-	                        <td class="text-center align-middle">
-	                            <a href="javascript:void(0);" class="btn btn-outline-info btn-sm edit_pemuda" data-jabatan="'.$dp->jabatan.'" data-id="'.$dp->id.'" data-nama="'.$dp->nama_lengkap.'"><span class="far fa-edit"></span></a>
-	                            <a href="javascript:void(0);" class="btn btn-outline-danger btn-sm delete_pemuda" data-id="'.$dp->id.'" data-nama="'.$dp->nama_lengkap.'" data-jabatan="'.$dp->jabatan.'" ><span class="far fa-trash-alt"></span></a>
-	                        </td>
 	                        <td class="align-middle text-center">'.$no++.'</td>
 	                        <td hidden>'.$dp->id.'</td>
 	                        <td class="align-middle">
@@ -80,46 +76,6 @@
 			}
 			
 			echo $html;
-		}
-
-		public function save_pemuda()
-		{
-
-			$id = $this->input->post('id_penduduk');
-			
-			$data = array();
-			foreach ($id as $i => $val) {
-				$data[] = array(
-					'id_penduduk' => $_POST['id_penduduk'][$i],
-					'jabatan'		=> $_POST['jabatan'][$i]
-				);
-			}
-			
-			$result = $this->KepemudaanModel->simpan_pemuda($data);
-
-			helper_log("add", "Menambahkan data Pemuda");
-			echo json_encode($result);
-		}
-
-		public function update_pemuda()
-		{
-			$id = $this->input->post('id');
-			$jabatan = $this->input->post('jabatan');
-
-			$data = $this->KepemudaanModel->edit_pemuda($id, $jabatan);
-			
-			helper_log("edit", "Mengubah data Pemuda");
-			echo json_encode($data);
-		}
-
-		public function delete_pemuda()
-		{
-			$id = $this->input->post('id');
-
-			$data = $this->KepemudaanModel->hapus_pemuda($id);
-			echo json_encode($data);
-			helper_log("del", "Menghapus data Pemuda");
-
 		}
 	
 	}

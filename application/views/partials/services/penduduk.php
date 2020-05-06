@@ -3,6 +3,7 @@
         $(document).ready(function(){  
 
             daftar_penduduk();
+            daftar_nonpenduduk();
 
             //  -----------------------------------------------------------------------------
             //  |       AMBIL DATA KE DATABASE                                              |
@@ -15,6 +16,18 @@
                     data:{query:query},
                     success : function(data){
                         $('#show_data').html(data);
+                    }
+     
+                });
+            }
+
+            function daftar_nonpenduduk(query){
+                $.ajax({
+                    url   : '<?= base_url("admin/Data_Penduduk/daftar_nonpenduduk")?>',
+                    method:"POST",
+                    data:{query:query},
+                    success : function(data){
+                        $('#show_data_nonpenduduk').html(data);
                     }
      
                 });
@@ -253,6 +266,15 @@
                 }
             });
 
+            $('#search_text_nonpenduduk').keyup(function(){
+                var search = $(this).val();
+                if(search != '') {
+                    daftar_nonpenduduk(search);
+                } else {
+                    daftar_nonpenduduk();
+                }
+            });
+
             //  -----------------------------------------------------------------------------
             //  |       PREVIEW FOTO PENDUDUK DI FORM TAMBAH                                |
             //  -----------------------------------------------------------------------------
@@ -290,6 +312,113 @@
             $("#foto_edit").change(function(){
                 previewFotoEdit(this);
             });   
+
+
+            // Non Penduduk
+
+            $('#checkall').change(function() {
+                var checked = $(this).is(':checked');
+                   if(checked){
+                      $(".checkbox").each(function(){
+                          $(this).prop("checked",true);
+                          $('#aktifcheck').fadeIn('slow');
+                          $('#hapuscheck').fadeIn('3000');
+                      });
+                   }else{
+                      $(".checkbox").each(function(){
+                          $(this).prop("checked",false);
+                          $('#aktifcheck').fadeOut('slow');
+                          $('#hapuscheck').fadeOut('3000');
+                      });
+                   }
+            });
+
+            $("#show_data_nonpenduduk").on('click','.checkbox', function(){
+                $('#aktifcheck').fadeIn('slow');
+                $('#hapuscheck').fadeIn('3000');
+               if($(".checkbox").length == $(".checkbox:checked").length) {
+                   $("#checkall").prop("checked", true);
+               } else {
+                   $("#checkall").prop("checked",false);
+               }
+
+            });
+
+            $('#aktifcheck').click(function(){
+
+               // Confirm alert
+               var deleteConfirm = confirm("Apakah Anda Yakin ?");
+               if (deleteConfirm == true) {
+
+                  // Get userid from checked checkboxes
+                  var id_user = [];
+                  $(".checkbox:checked").each(function(){
+                      var userid = $(this).val();
+
+                      id_user.push(userid);
+                  });
+
+                  // Array length
+                  var length = id_user.length;
+
+                  if(length > 0){
+
+                     // AJAX request
+                    $.ajax({
+                        url: '<?= base_url('admin/Data_Penduduk/update_aktif') ?>',
+                        type: 'post',
+                        data: {id: id_user},
+                        success: function(response){
+                            $("#alert-success-text").html('Data Berhasil di Aktifkan');
+                            $("#alert-success").fadeIn().delay(1000).fadeOut();
+                            $('#aktifcheck').fadeOut('slow');
+                            $('#hapuscheck').fadeOut('3000');
+                            daftar_nonpenduduk();
+                            daftar_penduduk();
+                        }
+                     });
+                  }
+               } 
+
+            });
+
+            $('#hapuscheck').click(function(){
+
+               // Confirm alert
+               var deleteConfirm = confirm("Apakah Anda Yakin ?");
+               if (deleteConfirm == true) {
+
+                  // Get userid from checked checkboxes
+                  var id_user = [];
+                  $(".checkbox:checked").each(function(){
+                      var userid = $(this).val();
+
+                      id_user.push(userid);
+                  });
+
+                  // Array length
+                  var length = id_user.length;
+
+                  if(length > 0){
+
+                     // AJAX request
+                    $.ajax({
+                        url: '<?= base_url('admin/Data_Penduduk/delete_aktif') ?>',
+                        type: 'post',
+                        data: {id: id_user},
+                        success: function(response){
+                            $("#alert-success-text").html('Data Berhasil di Hapus');
+                            $("#alert-success").fadeIn().delay(1000).fadeOut();
+                            $('#aktifcheck').fadeOut('slow');
+                            $('#hapuscheck').fadeOut('3000');
+                            daftar_nonpenduduk();
+                            daftar_penduduk();
+                        }
+                     });
+                  }
+               } 
+
+            });
         });
 </script>
 <!-- // End Data Penduduk -->

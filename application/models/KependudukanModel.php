@@ -44,10 +44,14 @@
 		
 		$this->db->from('penduduk');
 		if ($query != '') {
-	 		$this->db->or_like('nama_lengkap', $query);
-	 		$this->db->or_like('nama_lengkap', $query);
-	 		$this->db->or_like('tempat_lahir', $query);
+			$this->db->group_start();
+		 		$this->db->or_like('nama_lengkap', $query);
+		 		$this->db->or_like('nik', $query);
+		 		$this->db->or_like('no_kk', $query);
+		 		$this->db->or_like('tempat_lahir', $query);
+		 	$this->db->group_end();
 		}
+		$this->db->where('created_at !=', NULL);
 		$this->db->order_by('nama_lengkap', 'asc');
 		return $this->db->get();
 	}	
@@ -120,8 +124,38 @@
  		return $this->db->insert('galeri', $data);
  	}
 
+
+// ====================
+// |  NON PENDUDUK 		  |
+// ====================
+
+ 	function daftar_nonpenduduk($query)
+ 	{
+ 		$this->db->select('*');
+		$this->db->select('
+			CASE 
+			WHEN status_perkawinan = 0 THEN "Belum Kawin" 
+			WHEN status_perkawinan = 1 THEN "Menikah" 
+			WHEN status_perkawinan = 2 THEN "Janda/Duda" 
+			END as status_kawin', false);
+		
+		$this->db->from('penduduk');
+		if ($query != '') {
+	 		$this->db->group_start();
+		 		$this->db->or_like('nama_lengkap', $query);
+		 		$this->db->or_like('nik', $query);
+		 		$this->db->or_like('no_kk', $query);
+		 		$this->db->or_like('tempat_lahir', $query);
+		 	$this->db->group_end();
+		}
+		$this->db->where('created_at', NULL);
+		$this->db->order_by('nama_lengkap', 'asc');
+		return $this->db->get();
+ 	}
+
  }
+
  
  /* End of file KependudukanModel.php */
  /* Location: ./application/models/KependudukanModel.php */ 
- ?>
+?>
