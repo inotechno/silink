@@ -318,7 +318,7 @@
 		    $excel->getActiveSheet(0)->setTitle("Laporan Data Penduduk");
 		    $excel->setActiveSheetIndex(0);
 		    // Proses file excel
-		    ob_end_clean();
+		    if (ob_get_length()) ob_end_clean();
 		    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 		    header('Content-Disposition: attachment; filename="Data Penduduk.xlsx"'); // Set nama file excel nya
 		    header('Cache-Control: max-age=0');

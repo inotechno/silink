@@ -20,7 +20,7 @@
             $this->load->view('admin/dashboard');
             $this->load->view('partials/05footer');
             $this->load->view('partials/06plugin');
-            $this->load->view('partials/services/Dashboard');
+            $this->load->view('partials/services/dashboard');
         }
 
         public function get_jumlah()

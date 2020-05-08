@@ -14,7 +14,6 @@
 
     <!-- Custom CSS -->
     <link href="<?= base_url('assets'); ?>/assets/extra-libs/c3/c3.min.css" rel="stylesheet"/>
-    <link href="<?= base_url('assets'); ?>/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet"/>
     <link href="<?= base_url('assets') ?>/assets/libs/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="<?= base_url('assets'); ?>/dist/css/style.min.css" rel="stylesheet">

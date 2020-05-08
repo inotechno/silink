@@ -70,8 +70,8 @@
                                 <div class="col-lg-12 text-center">
                                     <button type="submit" class="btn btn-block btn-dark">Masuk</button>
                                 </div>
-                                <div class="col-lg-12 text-center mt-5">
-                                    <a href="#" class="text-danger">Hubungi Kami</a>
+                                <div class="col-lg-12 text-center mt-2">
+                                    <a href="<?= base_url('daftar') ?>" class="btn btn-block btn-info">Daftar</a>
                                 </div>
                             </div>
                         </form>
