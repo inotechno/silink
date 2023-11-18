@@ -1,18 +1,79 @@
-<h1>SILINK</h1>
-<h4>Sistem Informasi Lingkungan</h4>
+# SILINK - Sistem Informasi Lingkungan
 
-<h4>Hak Akses</h4>
-<ul>
-	<li>Admin/RT</li>
-	<li>Pemuda</li>
-	<li>Warga</li>
-</ul>
+SILINK adalah aplikasi open source yang dikembangkan menggunakan CodeIgniter 3 dan MySQL. Aplikasi ini dirancang untuk mengelola data administrasi lingkungan dengan berbagai fitur yang mencakup aspek beragam seperti keluarga, keuangan, pemuda, penduduk, inventaris warga, dan lainnya. Aplikasi ini memiliki tiga peran akses: Admin, Pemuda, dan Warga.
 
-<h4>Halaman Login</h4>
-<img src="https://user-images.githubusercontent.com/60428779/82129318-eac35500-97eb-11ea-8db0-64d09b765434.png">
+## Fitur
 
-<h4>Halaman Dashboard</h4>
-<img src="https://user-images.githubusercontent.com/60428779/82129361-47267480-97ec-11ea-889e-c686f0348b04.png">
+1. **Dashboard**: Ringkasan visual dari statistik dan informasi penting.
+2. **Data Keluarga**: Manajemen data keluarga warga.
+3. **Data Keuangan**: Perekaman dan pelacakan data keuangan.
+4. **Data Pemuda**: Informasi dan aktivitas pemuda di lingkungan.
+5. **Data Penduduk**: Data individu tentang penduduk.
+6. **Inventaris Warga**: Pencatatan dan pengelolaan inventaris warga.
+7. **Pengaturan Aplikasi**: Konfigurasi dan pengaturan aplikasi.
+8. **Register Warga**: Pendaftaran dan manajemen data warga.
+9. **Sumbangan Warga**: Penerimaan dan pencatatan sumbangan dari warga.
+10. **Daftar Kegiatan dan Tambah Kegiatan**: Pencatatan dan pengelolaan kegiatan di lingkungan.
 
-untuk harga dan info lebih lanjut hubungi :<br>
-whatsapp : <a href="https://api.whatsapp.com/send?phone=6289676490971&text=Halo">089676490971</a>
+## Role Akses
+
+1. **Admin**: Akses penuh ke semua fitur aplikasi.
+2. **Pemuda**: Akses terbatas sesuai dengan kebutuhan pemuda.
+3. **Warga**: Akses terbatas sesuai dengan kebutuhan warga.
+
+## Screenshot
+
+### 1. Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### 2. Data Keluarga
+
+![Data Keluarga](screenshots/data_keluarga.png)
+
+### 3. Data Keuangan
+
+![Data Keuangan](screenshots/data_keuangan.png)
+
+### 4. Data Pemuda
+
+![Data Pemuda](screenshots/data_pemuda.png)
+
+### 5. Data Penduduk
+
+![Data Penduduk](screenshots/data_penduduk.png)
+
+### 6. Inventaris Warga
+
+![Inventaris Warga](screenshots/inventaris_warga.png)
+
+### 7. Pengaturan Aplikasi
+
+![Pengaturan Aplikasi](screenshots/pengaturan_aplikasi.png)
+
+### 8. Register Warga
+
+![Register Warga](screenshots/register_warga.png)
+
+### 9. Sumbangan Warga
+
+![Sumbangan Warga](screenshots/sumbangan_warga.png)
+
+### 10. Daftar Kegiatan dan Tambah Kegiatan
+
+![Daftar Kegiatan](screenshots/daftar_kegiatan.png)
+![Tambah Kegiatan](screenshots/tambah_kegiatan.png)
+
+## Instalasi
+
+1. Clone repositori ini: `git clone https://github.com/inotechno/silink.git`
+2. Impor struktur database dari `silink.sql`.
+3. Konfigurasi file `application/config/database.php` untuk pengaturan koneksi database.
+
+## Kontribusi
+
+SILINK sangat terbuka terhadap kontribusi. Jika Anda tertarik untuk berkontribusi atau melaporkan masalah, silakan buka issue atau pull request. Kami sangat menghargai setiap bentuk kontribusi.
+
+## Lisensi
+
+Diberikan di bawah lisensi MIT - Lihat [LICENSE](LICENSE) untuk lebih lanjut.
