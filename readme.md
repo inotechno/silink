@@ -25,44 +25,43 @@ SILINK adalah aplikasi open source yang dikembangkan menggunakan CodeIgniter 3 d
 
 ### 1. Dashboard
 
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](screenshot/dashboard.png)
 
 ### 2. Data Keluarga
 
-![Data Keluarga](screenshots/data_keluarga.png)
+![Data Keluarga](screenshot/data_keluarga.png)
 
 ### 3. Data Keuangan
 
-![Data Keuangan](screenshots/data_keuangan.png)
+![Data Keuangan](screenshot/data_keuangan.png)
 
 ### 4. Data Pemuda
 
-![Data Pemuda](screenshots/data_pemuda.png)
+![Data Pemuda](screenshot/data_pemuda.png)
 
 ### 5. Data Penduduk
 
-![Data Penduduk](screenshots/data_penduduk.png)
+![Data Penduduk](screenshot/data_penduduk.png)
 
 ### 6. Inventaris Warga
 
-![Inventaris Warga](screenshots/inventaris_warga.png)
+![Inventaris Warga](screenshot/inventaris_warga.png)
 
 ### 7. Pengaturan Aplikasi
 
-![Pengaturan Aplikasi](screenshots/pengaturan_aplikasi.png)
+![Pengaturan Aplikasi](screenshot/pengaturan_aplikasi.png)
 
 ### 8. Register Warga
 
-![Register Warga](screenshots/register_warga.png)
+![Register Warga](screenshot/register_warga.png)
 
 ### 9. Sumbangan Warga
 
-![Sumbangan Warga](screenshots/sumbangan_warga.png)
+![Sumbangan Warga](screenshot/sumbangan_warga.png)
 
 ### 10. Daftar Kegiatan dan Tambah Kegiatan
 
-![Daftar Kegiatan](screenshots/daftar_kegiatan.png)
-![Tambah Kegiatan](screenshots/tambah_kegiatan.png)
+![Tambah Kegiatan](screenshot/tambah_kegiatan.png)
 
 ## Instalasi
 
